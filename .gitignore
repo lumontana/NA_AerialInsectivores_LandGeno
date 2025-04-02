@@ -20,6 +20,7 @@
 
 # RStudio files
 .Rproj.user/
+*.Rproj
 
 # produced vignettes
 vignettes/*.html
@@ -47,3 +48,24 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# zip and gz files
+*.zip
+*.gz
+# fastQC and multiQC html files
+*.html
+
+# RData
+*.Rdata
+*.RData
+
+# genomic files (zipped or not)
+*.fna
+*.jsonl
+*.json
+*.gbff
+*.vcf
+
+# Folders
+**/02_Bash
+**/old_scripts
