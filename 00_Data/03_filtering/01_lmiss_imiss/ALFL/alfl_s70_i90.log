@@ -1,0 +1,15 @@
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf alfl_s70.recode.vcf
+	--keep inds_to_keep_70_90.txt
+	--out alfl_s70_i90
+	--recode
+
+Keeping individuals in 'keep' list
+After filtering, kept 36 out of 58 Individuals
+Outputting VCF file...
+After filtering, kept 46995 out of a possible 46995 Sites
+Run Time = 10.00 seconds

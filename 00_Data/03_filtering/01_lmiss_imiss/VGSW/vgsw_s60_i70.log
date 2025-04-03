@@ -1,0 +1,15 @@
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf vgsw_s60.recode.vcf
+	--keep inds_to_keep_s60_i70.txt
+	--out vgsw_s60_i70
+	--recode
+
+Keeping individuals in 'keep' list
+After filtering, kept 41 out of 51 Individuals
+Outputting VCF file...
+After filtering, kept 110197 out of a possible 110197 Sites
+Run Time = 8.00 seconds

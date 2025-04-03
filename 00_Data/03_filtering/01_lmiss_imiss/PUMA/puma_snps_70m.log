@@ -1,0 +1,14 @@
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf populations.snps.vcf
+	--max-missing 0.3
+	--out puma_snps_70m
+	--recode
+
+After filtering, kept 50 out of 50 Individuals
+Outputting VCF file...
+After filtering, kept 108698 out of a possible 108698 Sites
+Run Time = 13.00 seconds

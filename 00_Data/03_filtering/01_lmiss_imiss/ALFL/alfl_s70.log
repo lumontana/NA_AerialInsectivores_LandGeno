@@ -1,0 +1,14 @@
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf populations.snps.vcf
+	--max-missing 0.3
+	--out alfl_s70
+	--recode
+
+After filtering, kept 58 out of 58 Individuals
+Outputting VCF file...
+After filtering, kept 46995 out of a possible 266864 Sites
+Run Time = 5.00 seconds

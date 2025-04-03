@@ -1,0 +1,10 @@
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf final_vgsw_s60_i70.recode.vcf
+
+After filtering, kept 41 out of 41 Individuals
+After filtering, kept 110197 out of a possible 110197 Sites
+Run Time = 0.00 seconds

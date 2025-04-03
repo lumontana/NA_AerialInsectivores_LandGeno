@@ -1,0 +1,15 @@
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf puma_snps_70m.recode.vcf
+	--keep inds_to_keep_7070.txt
+	--out puma_7070
+	--recode
+
+Keeping individuals in 'keep' list
+After filtering, kept 43 out of 50 Individuals
+Outputting VCF file...
+After filtering, kept 108698 out of a possible 108698 Sites
+Run Time = 8.00 seconds
