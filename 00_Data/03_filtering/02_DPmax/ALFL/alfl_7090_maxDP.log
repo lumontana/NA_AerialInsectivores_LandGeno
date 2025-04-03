@@ -1,0 +1,14 @@
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf ../alfl_population_final/alfl_s70_i90.recode.vcf
+	--max-meanDP 1.6e+03
+	--out alfl_7090_maxDP
+	--recode
+
+After filtering, kept 36 out of 36 Individuals
+Outputting VCF file...
+After filtering, kept 46992 out of a possible 46995 Sites
+Run Time = 8.00 seconds

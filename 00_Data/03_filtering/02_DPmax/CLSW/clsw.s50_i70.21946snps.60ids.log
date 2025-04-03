@@ -1,0 +1,14 @@
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf /home/llait/projects/def-tburg/AI_RADseq_ALFL_PUMA_CLSW_VGSW/CLSW_21_24_oct/4_popstep_with_R_minmac_RandomSNP/final_clsw_s50_i70.recode.vcf
+	--max-meanDP 1e+03
+	--out clsw.s50_i70.21946snps.60ids
+	--recode
+
+After filtering, kept 60 out of 60 Individuals
+Outputting VCF file...
+After filtering, kept 21946 out of a possible 21950 Sites
+Run Time = 7.00 seconds

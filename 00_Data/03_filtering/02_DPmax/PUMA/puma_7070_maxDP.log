@@ -1,0 +1,14 @@
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf puma_7070.recode.vcf
+	--max-meanDP 1.6e+03
+	--out puma_7070_maxDP
+	--recode
+
+After filtering, kept 43 out of 43 Individuals
+Outputting VCF file...
+After filtering, kept 108694 out of a possible 108698 Sites
+Run Time = 9.00 seconds
