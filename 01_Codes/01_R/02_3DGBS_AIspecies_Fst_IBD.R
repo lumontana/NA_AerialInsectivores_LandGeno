@@ -20,6 +20,7 @@ library(dartR)  # gl.fst.pop
 library(QuickPop)
 library(patchwork)
 library(hierfstat)
+library(scales)
 
 # Internal functions
 # not in
@@ -1065,7 +1066,7 @@ gFST.alfl.regions <- FST.alfl.regionssnps %>%
   scale_y_reverse(breaks = 1:2, labels = c("AB","SK")) +
   scale_x_continuous(breaks = 1:2, labels = c("AB","SK")) +
   # Color scale for upper half
-  scale_fill_viridis_c(name = "Fst", na.value = "white") +
+  scale_fill_viridis_c(name = "Fst", na.value = "white", labels = label_number(accuracy = 0.001)) +
   # Add title
   ggtitle("ALFL") + 
   # Theme and formatting
@@ -1147,7 +1148,7 @@ gFST.clsw.regions <- FST.clsw.regionssnps %>%
   scale_y_reverse(breaks = 1:8, labels = c("NBC","WA","SK","MB","CO","MX","MS","ON")) +
   scale_x_continuous(breaks = 1:8, labels = c("NBC","WA","SK","MB","CO","MX","MS","ON")) +
   # Color scale for upper half
-  scale_fill_viridis_c(name = "Fst", na.value = "white") +
+  scale_fill_viridis_c(name = "Fst", na.value = "white", labels = label_number(accuracy = 0.001)) +
   # Add title
   ggtitle("CLSW") + 
   # Theme and formatting
@@ -1232,7 +1233,7 @@ gFST.puma.regions <- FST.puma.regionssnps %>%
   scale_y_reverse(breaks = 1:4, labels = c("SBC and VI","SK","NC","SWON")) +
   scale_x_continuous(breaks = 1:4, labels = c("SBC and VI","SK","NC","SWON")) +
   # Color scale for upper half
-  scale_fill_viridis_c(name = "Fst", na.value = "white") +
+  scale_fill_viridis_c(name = "Fst", na.value = "white", labels = label_number(accuracy = 0.001)) +
   # Add title
   ggtitle("PUMA") + 
   # Theme and formatting
@@ -1317,7 +1318,7 @@ gFST.vgsw.regions <- FST.vgsw.regionssnps %>%
   scale_y_reverse(breaks = 1:5, labels = c("PI","SBC","WA","NV","CO")) +
   scale_x_continuous(breaks = 1:5, labels = c("PI","SBC","WA","NV","CO")) +
   # Color scale for upper half
-  scale_fill_viridis_c(name = "Fst", na.value = "white") +
+  scale_fill_viridis_c(name = "Fst", na.value = "white", labels = label_number(accuracy = 0.001)) +
   # Add title
   ggtitle("VGSW") + 
   # Theme and formatting
