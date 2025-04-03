@@ -35,21 +35,22 @@ table(d_meta$Species)
 # ALFL CLSW PUMA VGSW 
 # 103  139   66   74
 
-d_meta <- d_meta %>% 
+d_meta <- d_meta %>%
   mutate(Plate = paste0("Plate_",sub("^.*Plate[_]?([0-9]+).*", "\\1", Plate_ID)),  # Extract Plate number
-         Well = sub("^.*/([0-9]+[a-zA-Z]+)$", "\\1", Plate_ID)) %>%  # Extract Well info 
+         Well = sub("^.*/([0-9]+[a-zA-Z]+)$", "\\1", Plate_ID)) %>%  # Extract Well info
   mutate(Region = gsub("^[A-Z]{4}_|_[0-9]+$|[0-9]+$", "", ID)) %>%  # I manually changed some things on excel file that were causing troubles:
   # space after the species name for some ALFL individuals from AB. Also, some ALFL YT samples had just no _ between species name, location, 
   # and numeric identifier
   mutate(Region = ifelse(Region %in% c("CAB_Edm", "AB"), "AB",
-                         ifelse(Region %in% c("CBC_Pri","BC_Smc"), "BC",
+                         ifelse(Region %in% "CBC_Pri", "CBC",
+                                ifelse(Region %in% "BC_Smc", "NBC",
                                 ifelse(Region %in% c("MT_Tal"), "MT",
                                        ifelse(Region %in% "NB_Que", "NB",
                                               ifelse(Region %in% c("NL","NL_Pas","NL_Ter"), "NL",
                                                      ifelse(Region %in% c("SK","SK_Pan","SK_Bls","SK_Ind","SK_xxx"), "SK",
                                                             ifelse(Region %in% c("SWON","SWON_xxx"), "SWON",
                                                                    ifelse(Region %in% c("VI", "VI_BC"), "VI",
-                                                                          Region))))))))) #%>% 
+                                                                          Region)))))))))) #%>% 
   #filter(!duplicated(ID))  # keeping metadata to be as clean as possible. Removing duplicated ID because some were sent to genotype multiple times
 table(d_meta$Species)
 # ALFL CLSW PUMA VGSW 
@@ -100,7 +101,7 @@ d_meta <- d_meta %>%
 d_meta %>% filter(Dup %in% 1) %>% group_by(Species, Region) %>% summarise(N = n()) %>% print(n = 50)
 # Species Region     N
 # ALFL    AB        17
-# ALFL    BC         1
+# ALFL    CBC        1
 # ALFL    GU         2
 # ALFL    HO         1
 # ALFL    LA         4
@@ -112,12 +113,11 @@ d_meta %>% filter(Dup %in% 1) %>% group_by(Species, Region) %>% summarise(N = n(
 # ALFL    SK        20
 # ALFL    YT        19
 # CLSW    AZ         5
-# CLSW    BC        13
 # CLSW    CO        10
 # CLSW    MB        14
 # CLSW    MS         8
 # CLSW    MX         5
-# CLSW    NBC        4
+# CLSW    NBC       17
 # CLSW    ON        14
 # CLSW    SK        19
 # CLSW    TX         4
