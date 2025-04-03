@@ -161,11 +161,11 @@ d_meta <- d_meta %>%
   mutate(Month = as.integer(format(date, "%m")),
          Day = as.integer(format(date, "%d")),
          Year = as.integer(format(date, "%Y")),
-         JD = as.integer(format(date, "%j"))) %>% 
-  mutate(Season = ifelse(is.na(date), "Unknown",
-                         ifelse(Month %in% c(6:7), "Breeding",
-                                ifelse(Month %in% c(11,12,1,2,3), "Wintering",
-                                       "Migrating"))))
+         JD = as.integer(format(date, "%j"))) #%>% 
+  # mutate(Season = ifelse(is.na(date), "Unknown",
+  #                        ifelse(Month %in% c(6:7), "Breeding",
+  #                               ifelse(Month %in% c(11,12,1,2,3), "Wintering",
+  #                                      "Migrating"))))
 
 
 # Save dataset ------------------------------------------------------------
