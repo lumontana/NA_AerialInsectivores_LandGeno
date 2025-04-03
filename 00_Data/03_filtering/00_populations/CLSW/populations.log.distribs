@@ -1,0 +1,1172 @@
+# Note: Individual distributions can be extracted using the `stacks-dist-extract` utility.
+#       e.g. `stacks-dist-extract populations.log.distribs dist_name`
+
+BEGIN batch_progress
+CM026847.1: analyzed 2102 loci; filtered 215072 loci; 217174 loci seen.
+    337678 genomic sites, of which 1907 were covered by multiple loci (0.6%).
+    Calculating F statistics...done.
+JADDRP030000578.1: analyzed 27 loci; filtered 1491 loci; 1518 loci seen.
+    5654 genomic sites, of which 95 were covered by multiple loci (1.7%).
+    Calculating F statistics...done.
+JADDRP030000569.1: analyzed 11 loci; filtered 531 loci; 542 loci seen.
+    1908 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000058.1: analyzed 8 loci; filtered 419 loci; 427 loci seen.
+    1563 genomic sites, of which 4 were covered by multiple loci (0.3%).
+    Calculating F statistics...done.
+CM026848.1: analyzed 1948 loci; filtered 180699 loci; 182647 loci seen.
+    322711 genomic sites, of which 2403 were covered by multiple loci (0.7%).
+    Calculating F statistics...done.
+CM026849.1: analyzed 2227 loci; filtered 180697 loci; 182924 loci seen.
+    367003 genomic sites, of which 2936 were covered by multiple loci (0.8%).
+    Calculating F statistics...done.
+JADDRP030000057.1: analyzed 8 loci; filtered 359 loci; 367 loci seen.
+    1588 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000075.1: analyzed 2 loci; filtered 147 loci; 149 loci seen.
+    463 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000597.1: analyzed 4 loci; filtered 413 loci; 417 loci seen.
+    666 genomic sites, of which 7 were covered by multiple loci (1.1%).
+    Calculating F statistics...done.
+CM026850.1: analyzed 1385 loci; filtered 118352 loci; 119737 loci seen.
+    228284 genomic sites, of which 1733 were covered by multiple loci (0.8%).
+    Calculating F statistics...done.
+JADDRP030000078.1: analyzed 9 loci; filtered 396 loci; 405 loci seen.
+    1992 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+CM026851.1: analyzed 1327 loci; filtered 110683 loci; 112010 loci seen.
+    216584 genomic sites, of which 2159 were covered by multiple loci (1.0%).
+    Calculating F statistics...done.
+JADDRP030000572.1: analyzed 16 loci; filtered 647 loci; 663 loci seen.
+    3104 genomic sites, of which 266 were covered by multiple loci (8.6%).
+    Calculating F statistics...done.
+JADDRP030000052.1: analyzed 8 loci; filtered 405 loci; 413 loci seen.
+    1317 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+CM026852.1: analyzed 1800 loci; filtered 118677 loci; 120477 loci seen.
+    307233 genomic sites, of which 2286 were covered by multiple loci (0.7%).
+    Calculating F statistics...done.
+JADDRP030000586.1: analyzed 2 loci; filtered 96 loci; 98 loci seen.
+    410 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+CM026853.1: analyzed 1219 loci; filtered 78126 loci; 79345 loci seen.
+    209096 genomic sites, of which 2403 were covered by multiple loci (1.1%).
+    Calculating F statistics...done.
+CM026854.1: analyzed 1106 loci; filtered 79386 loci; 80492 loci seen.
+    182341 genomic sites, of which 593 were covered by multiple loci (0.3%).
+    Calculating F statistics...done.
+CM026855.1: analyzed 1214 loci; filtered 72181 loci; 73395 loci seen.
+    208748 genomic sites, of which 1908 were covered by multiple loci (0.9%).
+    Calculating F statistics...done.
+CM026856.1: analyzed 1004 loci; filtered 65145 loci; 66149 loci seen.
+    168727 genomic sites, of which 2006 were covered by multiple loci (1.2%).
+    Calculating F statistics...done.
+CM026857.1: analyzed 877 loci; filtered 50466 loci; 51343 loci seen.
+    153338 genomic sites, of which 2119 were covered by multiple loci (1.4%).
+    Calculating F statistics...done.
+JADDRP030000604.1: analyzed 7 loci; filtered 276 loci; 283 loci seen.
+    1489 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+CM026858.1: analyzed 984 loci; filtered 58093 loci; 59077 loci seen.
+    170315 genomic sites, of which 1806 were covered by multiple loci (1.1%).
+    Calculating F statistics...done.
+CM026859.1: analyzed 889 loci; filtered 50673 loci; 51562 loci seen.
+    153437 genomic sites, of which 630 were covered by multiple loci (0.4%).
+    Calculating F statistics...done.
+JADDRP030000098.1: analyzed 4 loci; filtered 154 loci; 158 loci seen.
+    903 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+CM026860.1: analyzed 1014 loci; filtered 56813 loci; 57827 loci seen.
+    181458 genomic sites, of which 2881 were covered by multiple loci (1.6%).
+    Calculating F statistics...done.
+CM026861.1: analyzed 919 loci; filtered 51323 loci; 52242 loci seen.
+    161968 genomic sites, of which 1269 were covered by multiple loci (0.8%).
+    Calculating F statistics...done.
+JADDRP030000612.1: analyzed 6 loci; filtered 224 loci; 230 loci seen.
+    1151 genomic sites, of which 4 were covered by multiple loci (0.3%).
+    Calculating F statistics...done.
+CM026862.1: analyzed 1056 loci; filtered 52463 loci; 53519 loci seen.
+    180973 genomic sites, of which 2299 were covered by multiple loci (1.3%).
+    Calculating F statistics...done.
+CM026863.1: analyzed 960 loci; filtered 46730 loci; 47690 loci seen.
+    166793 genomic sites, of which 1874 were covered by multiple loci (1.1%).
+    Calculating F statistics...done.
+CM026864.1: analyzed 910 loci; filtered 40885 loci; 41795 loci seen.
+    163286 genomic sites, of which 1700 were covered by multiple loci (1.0%).
+    Calculating F statistics...done.
+CM026865.1: analyzed 813 loci; filtered 41156 loci; 41969 loci seen.
+    143151 genomic sites, of which 1273 were covered by multiple loci (0.9%).
+    Calculating F statistics...done.
+CM026866.1: analyzed 937 loci; filtered 44562 loci; 45499 loci seen.
+    166560 genomic sites, of which 1921 were covered by multiple loci (1.2%).
+    Calculating F statistics...done.
+CM026867.1: analyzed 537 loci; filtered 31482 loci; 32019 loci seen.
+    94279 genomic sites, of which 822 were covered by multiple loci (0.9%).
+    Calculating F statistics...done.
+CM026868.1: analyzed 628 loci; filtered 26228 loci; 26856 loci seen.
+    106635 genomic sites, of which 1186 were covered by multiple loci (1.1%).
+    Calculating F statistics...done.
+JADDRP030000067.1: analyzed 4 loci; filtered 133 loci; 137 loci seen.
+    1138 genomic sites, of which 4 were covered by multiple loci (0.4%).
+    Calculating F statistics...done.
+CM026869.1: analyzed 804 loci; filtered 33111 loci; 33915 loci seen.
+    147638 genomic sites, of which 1626 were covered by multiple loci (1.1%).
+    Calculating F statistics...done.
+CM026870.1: analyzed 702 loci; filtered 29788 loci; 30490 loci seen.
+    130952 genomic sites, of which 507 were covered by multiple loci (0.4%).
+    Calculating F statistics...done.
+CM026871.1: analyzed 767 loci; filtered 30352 loci; 31119 loci seen.
+    142759 genomic sites, of which 1893 were covered by multiple loci (1.3%).
+    Calculating F statistics...done.
+CM026872.1: analyzed 568 loci; filtered 22170 loci; 22738 loci seen.
+    106597 genomic sites, of which 860 were covered by multiple loci (0.8%).
+    Calculating F statistics...done.
+CM026873.1: analyzed 487 loci; filtered 19316 loci; 19803 loci seen.
+    89851 genomic sites, of which 332 were covered by multiple loci (0.4%).
+    Calculating F statistics...done.
+JADDRP030000116.1: analyzed 8 loci; filtered 281 loci; 289 loci seen.
+    1347 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000599.1: analyzed 5 loci; filtered 131 loci; 136 loci seen.
+    1200 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+CM026874.1: analyzed 503 loci; filtered 18175 loci; 18678 loci seen.
+    95208 genomic sites, of which 694 were covered by multiple loci (0.7%).
+    Calculating F statistics...done.
+CM026875.1: analyzed 207 loci; filtered 8080 loci; 8287 loci seen.
+    36811 genomic sites, of which 232 were covered by multiple loci (0.6%).
+    Calculating F statistics...done.
+JADDRP030000110.1: analyzed 10 loci; filtered 329 loci; 339 loci seen.
+    1606 genomic sites, of which 4 were covered by multiple loci (0.2%).
+    Calculating F statistics...done.
+JADDRP030000593.1: analyzed 3 loci; filtered 152 loci; 155 loci seen.
+    591 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+CM026876.1: analyzed 191 loci; filtered 5993 loci; 6184 loci seen.
+    39305 genomic sites, of which 240 were covered by multiple loci (0.6%).
+    Calculating F statistics...done.
+JADDRP030000592.1: analyzed 5 loci; filtered 155 loci; 160 loci seen.
+    914 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+CM026877.1: analyzed 97 loci; filtered 3177 loci; 3274 loci seen.
+    19366 genomic sites, of which 2406 were covered by multiple loci (12.4%).
+    Calculating F statistics...done.
+CM026878.1: analyzed 42 loci; filtered 1329 loci; 1371 loci seen.
+    7614 genomic sites, of which 160 were covered by multiple loci (2.1%).
+    Calculating F statistics...done.
+CM026879.1: analyzed 18 loci; filtered 1020 loci; 1038 loci seen.
+    3982 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000570.1: analyzed 18 loci; filtered 603 loci; 621 loci seen.
+    3657 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+CM026880.1: analyzed 24 loci; filtered 845 loci; 869 loci seen.
+    4171 genomic sites, of which 388 were covered by multiple loci (9.3%).
+    Calculating F statistics...done.
+CM026881.1: analyzed 50 loci; filtered 1758 loci; 1808 loci seen.
+    9927 genomic sites, of which 385 were covered by multiple loci (3.9%).
+    Calculating F statistics...done.
+CM026882.1: analyzed 29 loci; filtered 888 loci; 917 loci seen.
+    5873 genomic sites, of which 109 were covered by multiple loci (1.9%).
+    Calculating F statistics...done.
+CM026883.1: analyzed 21 loci; filtered 929 loci; 950 loci seen.
+    4048 genomic sites, of which 110 were covered by multiple loci (2.7%).
+    Calculating F statistics...done.
+CM026884.1: analyzed 230 loci; filtered 30407 loci; 30637 loci seen.
+    44579 genomic sites, of which 1615 were covered by multiple loci (3.6%).
+    Calculating F statistics...done.
+JADDRP030000546.1: analyzed 3 loci; filtered 534 loci; 537 loci seen.
+    520 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+CM026885.1: analyzed 686 loci; filtered 104100 loci; 104786 loci seen.
+    117943 genomic sites, of which 1583 were covered by multiple loci (1.3%).
+    Calculating F statistics...done.
+CM037478.1: analyzed 6 loci; filtered 364 loci; 370 loci seen.
+    1235 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000048.1: analyzed 4 loci; filtered 148 loci; 152 loci seen.
+    860 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000114.1: analyzed 4 loci; filtered 140 loci; 144 loci seen.
+    752 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000591.1: analyzed 3 loci; filtered 44 loci; 47 loci seen.
+    535 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000177.1: analyzed 2 loci; filtered 226 loci; 228 loci seen.
+    421 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000124.1: analyzed 5 loci; filtered 108 loci; 113 loci seen.
+    1212 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000204.1: analyzed 4 loci; filtered 103 loci; 107 loci seen.
+    1252 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000406.1: analyzed 2 loci; filtered 87 loci; 89 loci seen.
+    958 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000040.1: analyzed 8 loci; filtered 258 loci; 266 loci seen.
+    1839 genomic sites, of which 26 were covered by multiple loci (1.4%).
+    Calculating F statistics...done.
+JADDRP030000041.1: analyzed 9 loci; filtered 321 loci; 330 loci seen.
+    1837 genomic sites, of which 82 were covered by multiple loci (4.5%).
+    Calculating F statistics...done.
+JADDRP030000042.1: analyzed 4 loci; filtered 182 loci; 186 loci seen.
+    758 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000043.1: analyzed 14 loci; filtered 397 loci; 411 loci seen.
+    3325 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000044.1: analyzed 2 loci; filtered 155 loci; 157 loci seen.
+    175 genomic sites, of which 169 were covered by multiple loci (96.6%).
+    Calculating F statistics...done.
+JADDRP030000045.1: analyzed 7 loci; filtered 497 loci; 504 loci seen.
+    1432 genomic sites, of which 4 were covered by multiple loci (0.3%).
+    Calculating F statistics...done.
+JADDRP030000046.1: analyzed 4 loci; filtered 138 loci; 142 loci seen.
+    716 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000047.1: analyzed 12 loci; filtered 356 loci; 368 loci seen.
+    2470 genomic sites, of which 470 were covered by multiple loci (19.0%).
+    Calculating F statistics...done.
+JADDRP030000049.1: analyzed 10 loci; filtered 254 loci; 264 loci seen.
+    2629 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000050.1: analyzed 10 loci; filtered 299 loci; 309 loci seen.
+    2125 genomic sites, of which 412 were covered by multiple loci (19.4%).
+    Calculating F statistics...done.
+JADDRP030000051.1: analyzed 9 loci; filtered 479 loci; 488 loci seen.
+    1883 genomic sites, of which 100 were covered by multiple loci (5.3%).
+    Calculating F statistics...done.
+JADDRP030000054.1: analyzed 5 loci; filtered 48 loci; 53 loci seen.
+    1128 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000055.1: analyzed 3 loci; filtered 257 loci; 260 loci seen.
+    559 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000056.1: analyzed 6 loci; filtered 297 loci; 303 loci seen.
+    1424 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000059.1: analyzed 5 loci; filtered 288 loci; 293 loci seen.
+    1321 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000061.1: analyzed 7 loci; filtered 260 loci; 267 loci seen.
+    1158 genomic sites, of which 94 were covered by multiple loci (8.1%).
+    Calculating F statistics...done.
+JADDRP030000063.1: analyzed 2 loci; filtered 149 loci; 151 loci seen.
+    326 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000064.1: analyzed 3 loci; filtered 76 loci; 79 loci seen.
+    604 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000065.1: analyzed 2 loci; filtered 129 loci; 131 loci seen.
+    306 genomic sites, of which 167 were covered by multiple loci (54.6%).
+    Calculating F statistics...done.
+JADDRP030000066.1: analyzed 5 loci; filtered 112 loci; 117 loci seen.
+    1309 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000068.1: analyzed 5 loci; filtered 229 loci; 234 loci seen.
+    1094 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000069.1: analyzed 4 loci; filtered 335 loci; 339 loci seen.
+    658 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000070.1: analyzed 5 loci; filtered 91 loci; 96 loci seen.
+    1138 genomic sites, of which 4 were covered by multiple loci (0.4%).
+    Calculating F statistics...done.
+JADDRP030000071.1: analyzed 3 loci; filtered 132 loci; 135 loci seen.
+    780 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000072.1: analyzed 4 loci; filtered 248 loci; 252 loci seen.
+    568 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000073.1: analyzed 5 loci; filtered 135 loci; 140 loci seen.
+    1040 genomic sites, of which 178 were covered by multiple loci (17.1%).
+    Calculating F statistics...done.
+JADDRP030000074.1: analyzed 3 loci; filtered 142 loci; 145 loci seen.
+    709 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000076.1: analyzed 3 loci; filtered 111 loci; 114 loci seen.
+    625 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000077.1: analyzed 2 loci; filtered 149 loci; 151 loci seen.
+    523 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000079.1: analyzed 4 loci; filtered 151 loci; 155 loci seen.
+    893 genomic sites, of which 4 were covered by multiple loci (0.4%).
+    Calculating F statistics...done.
+JADDRP030000080.1: analyzed 8 loci; filtered 325 loci; 333 loci seen.
+    2353 genomic sites, of which 4 were covered by multiple loci (0.2%).
+    Calculating F statistics...done.
+JADDRP030000081.1: analyzed 7 loci; filtered 186 loci; 193 loci seen.
+    1323 genomic sites, of which 409 were covered by multiple loci (30.9%).
+    Calculating F statistics...done.
+JADDRP030000082.1: analyzed 7 loci; filtered 143 loci; 150 loci seen.
+    1541 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000083.1: analyzed 6 loci; filtered 153 loci; 159 loci seen.
+    1146 genomic sites, of which 137 were covered by multiple loci (12.0%).
+    Calculating F statistics...done.
+JADDRP030000084.1: analyzed 6 loci; filtered 262 loci; 268 loci seen.
+    1002 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000086.1: analyzed 2 loci; filtered 207 loci; 209 loci seen.
+    332 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000089.1: analyzed 8 loci; filtered 322 loci; 330 loci seen.
+    1577 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000090.1: analyzed 7 loci; filtered 178 loci; 185 loci seen.
+    1810 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000091.1: analyzed 4 loci; filtered 187 loci; 191 loci seen.
+    853 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000093.1: analyzed 4 loci; filtered 108 loci; 112 loci seen.
+    852 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000094.1: analyzed 4 loci; filtered 79 loci; 83 loci seen.
+    657 genomic sites, of which 4 were covered by multiple loci (0.6%).
+    Calculating F statistics...done.
+JADDRP030000095.1: analyzed 3 loci; filtered 114 loci; 117 loci seen.
+    644 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000096.1: analyzed 8 loci; filtered 325 loci; 333 loci seen.
+    1672 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000097.1: analyzed 7 loci; filtered 165 loci; 172 loci seen.
+    1697 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000099.1: analyzed 4 loci; filtered 78 loci; 82 loci seen.
+    1032 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000100.1: analyzed 4 loci; filtered 189 loci; 193 loci seen.
+    992 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000101.1: analyzed 6 loci; filtered 127 loci; 133 loci seen.
+    1320 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000102.1: analyzed 4 loci; filtered 147 loci; 151 loci seen.
+    985 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000103.1: analyzed 6 loci; filtered 215 loci; 221 loci seen.
+    1042 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000104.1: analyzed 3 loci; filtered 207 loci; 210 loci seen.
+    778 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000106.1: analyzed 4 loci; filtered 125 loci; 129 loci seen.
+    797 genomic sites, of which 130 were covered by multiple loci (16.3%).
+    Calculating F statistics...done.
+JADDRP030000107.1: analyzed 6 loci; filtered 177 loci; 183 loci seen.
+    1258 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000108.1: analyzed 4 loci; filtered 160 loci; 164 loci seen.
+    694 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000111.1: analyzed 2 loci; filtered 151 loci; 153 loci seen.
+    334 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000112.1: analyzed 2 loci; filtered 47 loci; 49 loci seen.
+    423 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000113.1: analyzed 2 loci; filtered 117 loci; 119 loci seen.
+    358 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000115.1: analyzed 3 loci; filtered 101 loci; 104 loci seen.
+    623 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000117.1: analyzed 3 loci; filtered 64 loci; 67 loci seen.
+    916 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000118.1: analyzed 3 loci; filtered 120 loci; 123 loci seen.
+    512 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000120.1: analyzed 13 loci; filtered 280 loci; 293 loci seen.
+    2768 genomic sites, of which 244 were covered by multiple loci (8.8%).
+    Calculating F statistics...done.
+JADDRP030000121.1: analyzed 4 loci; filtered 85 loci; 89 loci seen.
+    1015 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000122.1: analyzed 13 loci; filtered 333 loci; 346 loci seen.
+    2327 genomic sites, of which 349 were covered by multiple loci (15.0%).
+    Calculating F statistics...done.
+JADDRP030000123.1: analyzed 3 loci; filtered 114 loci; 117 loci seen.
+    638 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000128.1: analyzed 2 loci; filtered 144 loci; 146 loci seen.
+    258 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000129.1: analyzed 15 loci; filtered 294 loci; 309 loci seen.
+    2265 genomic sites, of which 850 were covered by multiple loci (37.5%).
+    Calculating F statistics...done.
+JADDRP030000130.1: analyzed 6 loci; filtered 150 loci; 156 loci seen.
+    952 genomic sites, of which 135 were covered by multiple loci (14.2%).
+    Calculating F statistics...done.
+JADDRP030000132.1: analyzed 3 loci; filtered 254 loci; 257 loci seen.
+    576 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000133.1: analyzed 2 loci; filtered 29 loci; 31 loci seen.
+    696 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000134.1: analyzed 28 loci; filtered 577 loci; 605 loci seen.
+    5112 genomic sites, of which 2199 were covered by multiple loci (43.0%).
+    Calculating F statistics...done.
+JADDRP030000135.1: analyzed 8 loci; filtered 130 loci; 138 loci seen.
+    1710 genomic sites, of which 143 were covered by multiple loci (8.4%).
+    Calculating F statistics...done.
+JADDRP030000136.1: analyzed 5 loci; filtered 271 loci; 276 loci seen.
+    808 genomic sites, of which 112 were covered by multiple loci (13.9%).
+    Calculating F statistics...done.
+JADDRP030000139.1: analyzed 3 loci; filtered 431 loci; 434 loci seen.
+    637 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000141.1: analyzed 2 loci; filtered 201 loci; 203 loci seen.
+    221 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000143.1: analyzed 4 loci; filtered 161 loci; 165 loci seen.
+    818 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000144.1: analyzed 2 loci; filtered 130 loci; 132 loci seen.
+    366 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000146.1: analyzed 2 loci; filtered 94 loci; 96 loci seen.
+    555 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000147.1: analyzed 2 loci; filtered 85 loci; 87 loci seen.
+    406 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000148.1: analyzed 5 loci; filtered 125 loci; 130 loci seen.
+    1038 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000151.1: analyzed 4 loci; filtered 235 loci; 239 loci seen.
+    965 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000152.1: analyzed 3 loci; filtered 245 loci; 248 loci seen.
+    437 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000154.1: analyzed 2 loci; filtered 192 loci; 194 loci seen.
+    337 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000157.1: analyzed 7 loci; filtered 189 loci; 196 loci seen.
+    1246 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000161.1: analyzed 2 loci; filtered 90 loci; 92 loci seen.
+    620 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000162.1: analyzed 2 loci; filtered 111 loci; 113 loci seen.
+    552 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000164.1: analyzed 3 loci; filtered 228 loci; 231 loci seen.
+    403 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000165.1: analyzed 2 loci; filtered 86 loci; 88 loci seen.
+    243 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000166.1: analyzed 10 loci; filtered 317 loci; 327 loci seen.
+    1432 genomic sites, of which 636 were covered by multiple loci (44.4%).
+    Calculating F statistics...done.
+JADDRP030000171.1: analyzed 5 loci; filtered 115 loci; 120 loci seen.
+    1423 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000172.1: analyzed 3 loci; filtered 46 loci; 49 loci seen.
+    361 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000174.1: analyzed 2 loci; filtered 82 loci; 84 loci seen.
+    325 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000175.1: analyzed 9 loci; filtered 194 loci; 203 loci seen.
+    2105 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000176.1: analyzed 5 loci; filtered 213 loci; 218 loci seen.
+    968 genomic sites, of which 18 were covered by multiple loci (1.9%).
+    Calculating F statistics...done.
+JADDRP030000179.1: analyzed 2 loci; filtered 62 loci; 64 loci seen.
+    686 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000180.1: analyzed 5 loci; filtered 232 loci; 237 loci seen.
+    1373 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000182.1: analyzed 2 loci; filtered 23 loci; 25 loci seen.
+    405 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000183.1: analyzed 3 loci; filtered 160 loci; 163 loci seen.
+    390 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000184.1: analyzed 2 loci; filtered 92 loci; 94 loci seen.
+    488 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000187.1: analyzed 6 loci; filtered 110 loci; 116 loci seen.
+    984 genomic sites, of which 4 were covered by multiple loci (0.4%).
+    Calculating F statistics...done.
+JADDRP030000188.1: analyzed 4 loci; filtered 152 loci; 156 loci seen.
+    957 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000190.1: analyzed 4 loci; filtered 309 loci; 313 loci seen.
+    947 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000193.1: analyzed 2 loci; filtered 129 loci; 131 loci seen.
+    629 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000194.1: analyzed 2 loci; filtered 79 loci; 81 loci seen.
+    368 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000195.1: analyzed 3 loci; filtered 55 loci; 58 loci seen.
+    1016 genomic sites, of which 4 were covered by multiple loci (0.4%).
+    Calculating F statistics...done.
+JADDRP030000197.1: analyzed 5 loci; filtered 117 loci; 122 loci seen.
+    929 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000198.1: analyzed 2 loci; filtered 57 loci; 59 loci seen.
+    300 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000199.1: analyzed 2 loci; filtered 81 loci; 83 loci seen.
+    551 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000200.1: analyzed 2 loci; filtered 65 loci; 67 loci seen.
+    301 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000201.1: analyzed 13 loci; filtered 249 loci; 262 loci seen.
+    2225 genomic sites, of which 85 were covered by multiple loci (3.8%).
+    Calculating F statistics...done.
+JADDRP030000202.1: analyzed 3 loci; filtered 58 loci; 61 loci seen.
+    617 genomic sites, of which 4 were covered by multiple loci (0.6%).
+    Calculating F statistics...done.
+JADDRP030000205.1: analyzed 2 loci; filtered 211 loci; 213 loci seen.
+    369 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000212.1: analyzed 4 loci; filtered 478 loci; 482 loci seen.
+    506 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000214.1: analyzed 4 loci; filtered 222 loci; 226 loci seen.
+    604 genomic sites, of which 106 were covered by multiple loci (17.5%).
+    Calculating F statistics...done.
+JADDRP030000221.1: analyzed 3 loci; filtered 245 loci; 248 loci seen.
+    478 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000223.1: analyzed 2 loci; filtered 53 loci; 55 loci seen.
+    489 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000224.1: analyzed 2 loci; filtered 65 loci; 67 loci seen.
+    349 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000227.1: analyzed 3 loci; filtered 223 loci; 226 loci seen.
+    1096 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000229.1: analyzed 2 loci; filtered 91 loci; 93 loci seen.
+    347 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000230.1: analyzed 2 loci; filtered 49 loci; 51 loci seen.
+    358 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000232.1: analyzed 2 loci; filtered 120 loci; 122 loci seen.
+    205 genomic sites, of which 204 were covered by multiple loci (99.5%).
+    Calculating F statistics...done.
+JADDRP030000236.1: analyzed 2 loci; filtered 180 loci; 182 loci seen.
+    305 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000237.1: analyzed 7 loci; filtered 150 loci; 157 loci seen.
+    940 genomic sites, of which 930 were covered by multiple loci (98.9%).
+    Calculating F statistics...done.
+JADDRP030000238.1: analyzed 6 loci; filtered 109 loci; 115 loci seen.
+    1505 genomic sites, of which 3 were covered by multiple loci (0.2%).
+    Calculating F statistics...done.
+JADDRP030000239.1: analyzed 4 loci; filtered 156 loci; 160 loci seen.
+    605 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000242.1: analyzed 2 loci; filtered 132 loci; 134 loci seen.
+    593 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000246.1: analyzed 2 loci; filtered 63 loci; 65 loci seen.
+    378 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000247.1: analyzed 2 loci; filtered 57 loci; 59 loci seen.
+    375 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000248.1: analyzed 2 loci; filtered 80 loci; 82 loci seen.
+    436 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000249.1: analyzed 4 loci; filtered 212 loci; 216 loci seen.
+    819 genomic sites, of which 214 were covered by multiple loci (26.1%).
+    Calculating F statistics...done.
+JADDRP030000255.1: analyzed 5 loci; filtered 204 loci; 209 loci seen.
+    1150 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000257.1: analyzed 2 loci; filtered 78 loci; 80 loci seen.
+    308 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000263.1: analyzed 3 loci; filtered 186 loci; 189 loci seen.
+    649 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000264.1: analyzed 4 loci; filtered 76 loci; 80 loci seen.
+    613 genomic sites, of which 175 were covered by multiple loci (28.5%).
+    Calculating F statistics...done.
+JADDRP030000265.1: analyzed 2 loci; filtered 62 loci; 64 loci seen.
+    218 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000267.1: analyzed 3 loci; filtered 156 loci; 159 loci seen.
+    786 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000270.1: analyzed 2 loci; filtered 53 loci; 55 loci seen.
+    306 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000273.1: analyzed 3 loci; filtered 126 loci; 129 loci seen.
+    810 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000275.1: analyzed 3 loci; filtered 98 loci; 101 loci seen.
+    456 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000276.1: analyzed 4 loci; filtered 111 loci; 115 loci seen.
+    596 genomic sites, of which 2 were covered by multiple loci (0.3%).
+    Calculating F statistics...done.
+JADDRP030000277.1: analyzed 2 loci; filtered 203 loci; 205 loci seen.
+    441 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000283.1: analyzed 2 loci; filtered 94 loci; 96 loci seen.
+    550 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000284.1: analyzed 3 loci; filtered 61 loci; 64 loci seen.
+    789 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000287.1: analyzed 2 loci; filtered 165 loci; 167 loci seen.
+    335 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000289.1: analyzed 2 loci; filtered 113 loci; 115 loci seen.
+    293 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000292.1: analyzed 6 loci; filtered 143 loci; 149 loci seen.
+    1372 genomic sites, of which 8 were covered by multiple loci (0.6%).
+    Calculating F statistics...done.
+JADDRP030000295.1: analyzed 2 loci; filtered 233 loci; 235 loci seen.
+    516 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000298.1: analyzed 2 loci; filtered 31 loci; 33 loci seen.
+    573 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000299.1: analyzed 3 loci; filtered 58 loci; 61 loci seen.
+    416 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000300.1: analyzed 2 loci; filtered 182 loci; 184 loci seen.
+    442 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000302.1: analyzed 6 loci; filtered 118 loci; 124 loci seen.
+    1248 genomic sites, of which 4 were covered by multiple loci (0.3%).
+    Calculating F statistics...done.
+JADDRP030000304.1: analyzed 8 loci; filtered 146 loci; 154 loci seen.
+    1398 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000305.1: analyzed 3 loci; filtered 158 loci; 161 loci seen.
+    393 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000307.1: analyzed 4 loci; filtered 66 loci; 70 loci seen.
+    797 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000308.1: analyzed 3 loci; filtered 61 loci; 64 loci seen.
+    475 genomic sites, of which 218 were covered by multiple loci (45.9%).
+    Calculating F statistics...done.
+JADDRP030000312.1: analyzed 10 loci; filtered 183 loci; 193 loci seen.
+    2027 genomic sites, of which 147 were covered by multiple loci (7.3%).
+    Calculating F statistics...done.
+JADDRP030000314.1: analyzed 5 loci; filtered 111 loci; 116 loci seen.
+    1128 genomic sites, of which 114 were covered by multiple loci (10.1%).
+    Calculating F statistics...done.
+JADDRP030000315.1: analyzed 2 loci; filtered 87 loci; 89 loci seen.
+    759 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000316.1: analyzed 7 loci; filtered 104 loci; 111 loci seen.
+    1224 genomic sites, of which 468 were covered by multiple loci (38.2%).
+    Calculating F statistics...done.
+JADDRP030000322.1: analyzed 5 loci; filtered 238 loci; 243 loci seen.
+    802 genomic sites, of which 19 were covered by multiple loci (2.4%).
+    Calculating F statistics...done.
+JADDRP030000323.1: analyzed 7 loci; filtered 173 loci; 180 loci seen.
+    1495 genomic sites, of which 74 were covered by multiple loci (4.9%).
+    Calculating F statistics...done.
+JADDRP030000324.1: analyzed 4 loci; filtered 160 loci; 164 loci seen.
+    576 genomic sites, of which 539 were covered by multiple loci (93.6%).
+    Calculating F statistics...done.
+JADDRP030000326.1: analyzed 3 loci; filtered 140 loci; 143 loci seen.
+    483 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000331.1: analyzed 2 loci; filtered 105 loci; 107 loci seen.
+    559 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000333.1: analyzed 2 loci; filtered 447 loci; 449 loci seen.
+    534 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000344.1: analyzed 3 loci; filtered 222 loci; 225 loci seen.
+    606 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000350.1: analyzed 5 loci; filtered 118 loci; 123 loci seen.
+    1021 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000351.1: analyzed 2 loci; filtered 53 loci; 55 loci seen.
+    369 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000353.1: analyzed 6 loci; filtered 76 loci; 82 loci seen.
+    1288 genomic sites, of which 259 were covered by multiple loci (20.1%).
+    Calculating F statistics...done.
+JADDRP030000356.1: analyzed 2 loci; filtered 148 loci; 150 loci seen.
+    288 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000363.1: analyzed 3 loci; filtered 172 loci; 175 loci seen.
+    364 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000365.1: analyzed 2 loci; filtered 105 loci; 107 loci seen.
+    441 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000367.1: analyzed 2 loci; filtered 60 loci; 62 loci seen.
+    409 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000368.1: analyzed 3 loci; filtered 283 loci; 286 loci seen.
+    980 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000576.1: analyzed 9 loci; filtered 505 loci; 514 loci seen.
+    2028 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000380.1: analyzed 8 loci; filtered 321 loci; 329 loci seen.
+    1677 genomic sites, of which 191 were covered by multiple loci (11.4%).
+    Calculating F statistics...done.
+JADDRP030000389.1: analyzed 3 loci; filtered 90 loci; 93 loci seen.
+    619 genomic sites, of which 4 were covered by multiple loci (0.6%).
+    Calculating F statistics...done.
+JADDRP030000391.1: analyzed 3 loci; filtered 56 loci; 59 loci seen.
+    536 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000393.1: analyzed 7 loci; filtered 145 loci; 152 loci seen.
+    1325 genomic sites, of which 98 were covered by multiple loci (7.4%).
+    Calculating F statistics...done.
+JADDRP030000396.1: analyzed 4 loci; filtered 161 loci; 165 loci seen.
+    755 genomic sites, of which 4 were covered by multiple loci (0.5%).
+    Calculating F statistics...done.
+JADDRP030000400.1: analyzed 3 loci; filtered 103 loci; 106 loci seen.
+    521 genomic sites, of which 70 were covered by multiple loci (13.4%).
+    Calculating F statistics...done.
+JADDRP030000405.1: analyzed 3 loci; filtered 131 loci; 134 loci seen.
+    599 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000410.1: analyzed 2 loci; filtered 49 loci; 51 loci seen.
+    491 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000411.1: analyzed 3 loci; filtered 108 loci; 111 loci seen.
+    581 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000415.1: analyzed 2 loci; filtered 56 loci; 58 loci seen.
+    204 genomic sites, of which 89 were covered by multiple loci (43.6%).
+    Calculating F statistics...done.
+JADDRP030000421.1: analyzed 3 loci; filtered 156 loci; 159 loci seen.
+    555 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000424.1: analyzed 2 loci; filtered 258 loci; 260 loci seen.
+    606 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000433.1: analyzed 2 loci; filtered 30 loci; 32 loci seen.
+    517 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000436.1: analyzed 2 loci; filtered 144 loci; 146 loci seen.
+    258 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000438.1: analyzed 2 loci; filtered 158 loci; 160 loci seen.
+    551 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000448.1: analyzed 2 loci; filtered 37 loci; 39 loci seen.
+    579 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000456.1: analyzed 2 loci; filtered 94 loci; 96 loci seen.
+    441 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000460.1: analyzed 5 loci; filtered 330 loci; 335 loci seen.
+    586 genomic sites, of which 85 were covered by multiple loci (14.5%).
+    Calculating F statistics...done.
+JADDRP030000484.1: analyzed 2 loci; filtered 187 loci; 189 loci seen.
+    302 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000491.1: analyzed 2 loci; filtered 156 loci; 158 loci seen.
+    646 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000505.1: analyzed 2 loci; filtered 150 loci; 152 loci seen.
+    470 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000509.1: analyzed 2 loci; filtered 32 loci; 34 loci seen.
+    331 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000574.1: analyzed 12 loci; filtered 534 loci; 546 loci seen.
+    2630 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000519.1: analyzed 3 loci; filtered 94 loci; 97 loci seen.
+    591 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000524.1: analyzed 2 loci; filtered 84 loci; 86 loci seen.
+    626 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000527.1: analyzed 2 loci; filtered 82 loci; 84 loci seen.
+    326 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000530.1: analyzed 2 loci; filtered 56 loci; 58 loci seen.
+    468 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000536.1: analyzed 2 loci; filtered 68 loci; 70 loci seen.
+    276 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000545.1: analyzed 3 loci; filtered 84 loci; 87 loci seen.
+    801 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000552.1: analyzed 2 loci; filtered 119 loci; 121 loci seen.
+    379 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000577.1: analyzed 10 loci; filtered 267 loci; 277 loci seen.
+    2002 genomic sites, of which 4 were covered by multiple loci (0.2%).
+    Calculating F statistics...done.
+JADDRP030000568.1: analyzed 17 loci; filtered 708 loci; 725 loci seen.
+    3596 genomic sites, of which 368 were covered by multiple loci (10.2%).
+    Calculating F statistics...done.
+JADDRP030000573.1: analyzed 31 loci; filtered 921 loci; 952 loci seen.
+    6223 genomic sites, of which 497 were covered by multiple loci (8.0%).
+    Calculating F statistics...done.
+JADDRP030000575.1: analyzed 7 loci; filtered 249 loci; 256 loci seen.
+    1423 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000579.1: analyzed 5 loci; filtered 184 loci; 189 loci seen.
+    960 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000601.1: analyzed 3 loci; filtered 235 loci; 238 loci seen.
+    653 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000614.1: analyzed 6 loci; filtered 249 loci; 255 loci seen.
+    1073 genomic sites, of which 2 were covered by multiple loci (0.2%).
+    Calculating F statistics...done.
+JADDRP030000616.1: analyzed 2 loci; filtered 45 loci; 47 loci seen.
+    488 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000580.1: analyzed 7 loci; filtered 229 loci; 236 loci seen.
+    1507 genomic sites, of which 4 were covered by multiple loci (0.3%).
+    Calculating F statistics...done.
+JADDRP030000581.1: analyzed 3 loci; filtered 151 loci; 154 loci seen.
+    503 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000589.1: analyzed 6 loci; filtered 317 loci; 323 loci seen.
+    946 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000587.1: analyzed 5 loci; filtered 119 loci; 124 loci seen.
+    865 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000584.1: analyzed 2 loci; filtered 167 loci; 169 loci seen.
+    325 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000588.1: analyzed 4 loci; filtered 80 loci; 84 loci seen.
+    724 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+JADDRP030000607.1: analyzed 3 loci; filtered 56 loci; 59 loci seen.
+    569 genomic sites, of which 0 were covered by multiple loci (0.0%).
+    Calculating F statistics...done.
+END batch_progress
+
+BEGIN samples_per_loc_prefilters
+# Distribution of valid samples matched to a catalog locus prior to filtering.
+n_samples	n_loci
+1	986922
+2	265865
+3	127489
+4	81973
+5	63383
+6	54311
+7	48585
+8	43129
+9	38404
+10	34302
+11	30769
+12	27347
+13	24963
+14	23011
+15	20629
+16	18767
+17	16537
+18	14360
+19	12273
+20	10094
+21	8471
+22	6936
+23	5912
+24	5249
+25	4895
+26	4543
+27	4463
+28	4597
+29	4608
+30	4707
+31	4631
+32	4863
+33	5238
+34	5348
+35	5566
+36	5752
+37	5994
+38	6131
+39	6358
+40	6592
+41	6689
+42	7008
+43	7040
+44	7127
+45	7166
+46	7504
+47	7771
+48	7706
+49	7932
+50	7649
+51	7269
+52	6644
+53	5499
+54	4316
+55	3047
+56	2052
+57	1219
+58	753
+59	421
+60	253
+61	154
+62	108
+63	80
+64	78
+65	66
+66	79
+67	59
+68	51
+69	66
+70	60
+71	49
+72	33
+73	38
+74	22
+75	17
+76	12
+77	4
+78	1
+84	1
+86	1
+END samples_per_loc_prefilters
+
+BEGIN missing_samples_per_loc_prefilters
+# Distribution of missing samples for each catalog locus prior to filtering.
+# Absent samples at locus	Count
+15	1
+17	1
+23	1
+24	4
+25	12
+26	17
+27	22
+28	38
+29	33
+30	49
+31	60
+32	66
+33	51
+34	59
+35	79
+36	66
+37	78
+38	80
+39	108
+40	154
+41	253
+42	421
+43	753
+44	1219
+45	2052
+46	3047
+47	4316
+48	5499
+49	6644
+50	7269
+51	7649
+52	7932
+53	7706
+54	7771
+55	7504
+56	7166
+57	7127
+58	7040
+59	7008
+60	6689
+61	6592
+62	6358
+63	6131
+64	5994
+65	5752
+66	5566
+67	5348
+68	5238
+69	4863
+70	4631
+71	4707
+72	4608
+73	4597
+74	4463
+75	4543
+76	4895
+77	5249
+78	5912
+79	6936
+80	8471
+81	10094
+82	12273
+83	14360
+84	16537
+85	18767
+86	20629
+87	23011
+88	24963
+89	27347
+90	30769
+91	34302
+92	38404
+93	43129
+94	48585
+95	54311
+96	63383
+97	81973
+98	127489
+99	265865
+100	986922
+END missing_samples_per_loc_prefilters
+
+BEGIN snps_per_loc_prefilters
+# Distribution of the number of SNPs per catalog locus prior to filtering.
+n_snps	n_loci
+0	1652375
+1	133805
+2	82528
+3	53588
+4	38704
+5	30812
+6	26327
+7	23219
+8	20578
+9	18020
+10	15401
+11	13206
+12	10903
+13	8907
+14	7234
+15	5656
+16	4398
+17	3490
+18	2604
+19	1989
+20	1519
+21	1166
+22	880
+23	657
+24	503
+25	352
+26	282
+27	208
+28	164
+29	111
+30	102
+31	68
+32	50
+33	46
+34	36
+35	26
+36	10
+37	17
+38	13
+39	7
+40	12
+41	4
+42	5
+43	2
+44	4
+45	5
+46	4
+48	2
+49	3
+50	1
+51	2
+52	1
+53	1
+54	1
+56	1
+60	1
+64	1
+END snps_per_loc_prefilters
+
+BEGIN samples_per_loc_postfilters
+# Distribution of valid samples matched to a catalog locus after filtering.
+n_samples	n_loci
+51	7269
+52	6644
+53	5499
+54	4316
+55	3047
+56	2052
+57	1219
+58	753
+59	421
+60	253
+61	154
+62	108
+63	80
+64	78
+65	66
+66	79
+67	59
+68	51
+69	66
+70	60
+71	49
+72	33
+73	38
+74	22
+75	17
+76	12
+77	4
+78	1
+84	1
+86	1
+END samples_per_loc_postfilters
+
+BEGIN missing_samples_per_loc_postfilters
+# Distribution of missing samples for each catalog locus after filtering.
+# Absent samples at locus	Count
+15	1
+17	1
+23	1
+24	4
+25	12
+26	17
+27	22
+28	38
+29	33
+30	49
+31	60
+32	66
+33	51
+34	59
+35	79
+36	66
+37	78
+38	80
+39	108
+40	154
+41	253
+42	421
+43	753
+44	1219
+45	2052
+46	3047
+47	4316
+48	5499
+49	6644
+50	7269
+END missing_samples_per_loc_postfilters
+
+BEGIN snps_per_loc_postfilters
+# Distribution of the number of SNPs per catalog locus (after filtering).
+n_snps	n_loci
+0	10502
+1	21950
+END snps_per_loc_postfilters

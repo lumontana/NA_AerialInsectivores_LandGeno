@@ -1,0 +1,93 @@
+populations v2.53, executed 2024-10-18 13:51:34 (zlib-1.2.11)
+populations -P /lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/VGSW_21_24_oct/3_stacks_out/ -O /lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/VGSW_21_24_oct/4_populations_R_minmac_randomSNP/ -M /lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/VGSW_21_24_oct/2_VGSW_21_24aligned_to_refgenome/popmap_vgsw.txt -R 0.5 --min-mac 3 --write-random-snp --vcf --genepop --structure --plink --phylip --fstats --hwe -t 8
+Locus/sample distributions will be written to '/lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/VGSW_21_24_oct/4_populations_R_minmac_randomSNP/populations.log.distribs'.
+populations parameters selected:
+  Percent samples limit per population: 0
+  Locus Population limit: 1
+  Percent samples overall: 0.5
+  Minor allele frequency cutoff: 0
+  Maximum observed heterozygosity cutoff: 1
+  Applying Fst correction: none.
+  Pi/Fis kernel smoothing: off
+  Fstats kernel smoothing: off
+  Bootstrap resampling: off
+
+Parsing population map...
+The population map contained 51 samples, 6 population(s), 1 group(s).
+Working on 51 samples.
+Working on 6 population(s):
+    CO: VGSW_CO001_merged, VGSW_CO002_merged, VGSW_CO003, VGSW_CO004_merged, VGSW_CO005, VGSW_CO006, VGSW_CO008, VGSW_CO009, VGSW_CO010_merged
+    NM: VGSW_NM001_seq2, VGSW_NM002_seq2
+    NV: VGSW_NV001, VGSW_NV002, VGSW_NV003_seq2, VGSW_NV004, VGSW_NV005_seq2, VGSW_NV006, VGSW_NV008, VGSW_NV009, VGSW_NV010, VGSW_NV011
+    PI_BC: VGSW_PI_BC007, VGSW_PI_BC008_merged, VGSW_PI_BC009_merged, VGSW_PI_BC010, VGSW_PI_BC011, VGSW_PI_BC012, VGSW_PI_BC013, VGSW_PI_BC014_merged, 
+           VGSW_PI_BC015_seq2, VGSW_PI_BC016
+    SBC: VGSW_SBC001_seq2, VGSW_SBC002_seq2, VGSW_SBC003_seq2, VGSW_SBC004_seq2, VGSW_SBC005_seq2, VGSW_SBC006_seq2, VGSW_SBC007_seq2, 
+         VGSW_SBC008, VGSW_SBC009_merged, VGSW_SBC010_merged
+    WA: VGSW_WA007_seq2, VGSW_WA008, VGSW_WA009_seq2, VGSW_WA010_seq2, VGSW_WA011_seq2, VGSW_WA012, VGSW_WA013, VGSW_WA014_merged, 
+        VGSW_WA015, VGSW_WA016
+Working on 1 group(s) of populations:
+    defaultgrp: CO, NM, NV, PI_BC, SBC, WA
+
+SNPs and calls will be written in VCF format to '/lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/VGSW_21_24_oct/4_populations_R_minmac_randomSNP/populations.snps.vcf'
+Polymorphic sites in GenePop format will be written to '/lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/VGSW_21_24_oct/4_populations_R_minmac_randomSNP/populations.snps.genepop'
+Polymorphic sites in Structure format will be written to '/lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/VGSW_21_24_oct/4_populations_R_minmac_randomSNP/populations.structure'
+Polymorphic sites in PLINK format will be written to '/lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/VGSW_21_24_oct/4_populations_R_minmac_randomSNP/populations.plink.ped'
+Fixed difference sites in Phylip format will be written to '/lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/VGSW_21_24_oct/4_populations_R_minmac_randomSNP/populations.fixed.phylip'
+Raw haplotypes will be written to '/lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/VGSW_21_24_oct/4_populations_R_minmac_randomSNP/populations.haplotypes.tsv'
+Population-level summary statistics will be written to '/lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/VGSW_21_24_oct/4_populations_R_minmac_randomSNP/populations.sumstats.tsv'
+Population-level haplotype summary statistics will be written to '/lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/VGSW_21_24_oct/4_populations_R_minmac_randomSNP/populations.hapstats.tsv'
+
+Processing data in batches:
+  * load a batch of catalog loci and apply filters
+  * compute SNP- and haplotype-wise per-population statistics
+  * compute SNP- and haplotype-wise deviation from HWE
+  * compute F-statistics
+  * write the above statistics in the output files
+  * export the genotypes/haplotypes in specified format(s)
+More details in '/lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/VGSW_21_24_oct/4_populations_R_minmac_randomSNP/populations.log.distribs'.
+Now processing...
+CM026847.1 
+JADDRP030000578.1 
+JADDRP030000569.1 
+JADDRP030000058.1 
+JADDRP030000105.1 
+CM026848.1 
+JADDRP030000603.1 
+CM026849.1 
+JADDRP030000057.1 
+JADDRP030000075.1 
+JADDRP030000605.1 
+JADDRP030000610.1 
+JADDRP030000597.1 
+CM026850.1 
+JADDRP030000078.1 
+CM026851.1 
+JADDRP030000572.1 
+JADDRP030000053.1 
+JADDRP030000052.1 
+JADDRP030000606.1 
+CM026852.1 
+JADDRP030000586.1 
+CM026853.1 
+CM026854.1 
+CM026855.1 
+CM026856.1 
+CM026857.1 
+JADDRP030000604.1 
+CM026858.1 
+CM026859.1 
+JADDRP030000098.1 
+CM026860.1 
+CM026861.1 
+JADDRP030000612.1 
+CM026862.1 
+CM026863.1 
+CM026864.1 
+CM026865.1 
+CM026866.1 
+CM026867.1 
+JADDRP030000600.1 
+CM026868.1 
+JADDRP030000067.1 
+CM026869.1 
+CM026870.1 

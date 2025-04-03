@@ -1,0 +1,460 @@
+populations v2.53, executed 2024-10-18 13:45:39 (zlib-1.2.11)
+populations -P /lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/CLSW_21_24_oct/3_CLSW_21_24_stacksout/ -O /lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/CLSW_21_24_oct/4_popstep_with_R_minmac_RandomSNP/ -M /lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/CLSW_21_24_oct/2_CLSW_21_24_alighned_to_refgenome/popmap_CLSW.txt -R 0.5 --min-mac 3 --write-random-snp --vcf --genepop --structure --plink --phylip --fstats --hwe -t 8
+Locus/sample distributions will be written to '/lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/CLSW_21_24_oct/4_popstep_with_R_minmac_RandomSNP/populations.log.distribs'.
+populations parameters selected:
+  Percent samples limit per population: 0
+  Locus Population limit: 1
+  Percent samples overall: 0.5
+  Minor allele frequency cutoff: 0
+  Maximum observed heterozygosity cutoff: 1
+  Applying Fst correction: none.
+  Pi/Fis kernel smoothing: off
+  Fstats kernel smoothing: off
+  Bootstrap resampling: off
+
+Parsing population map...
+The population map contained 101 samples, 12 population(s), 1 group(s).
+Working on 101 samples.
+Working on 12 population(s):
+    AZ: CLSW_AZ001_seq2, CLSW_AZ002_seq2, CLSW_AZ003_seq2, CLSW_AZ004_seq2, CLSW_AZ005_seq2
+    BC: CLSW_BC_Smc_01, CLSW_BC_Smc_02, CLSW_BC_Smc_03, CLSW_BC_Smc_04, CLSW_BC_Smc_05, CLSW_BC_Smc_06, CLSW_BC_Smc_07, CLSW_BC_Smc_08, 
+        CLSW_BC_Smc_09, CLSW_BC_Smc_10, CLSW_BC_Smc_11_seq2, CLSW_BC_Smc_12_seq2, CLSW_BC_Smc_13_seq2
+    CO: CLSW_CO001_seq2, CLSW_CO002_seq2, CLSW_CO004_seq2, CLSW_CO005_seq2, CLSW_CO006_seq2, CLSW_CO007_seq2, CLSW_CO008_seq2, CLSW_CO009_seq2, 
+        CLSW_CO010_seq2
+    MB: CLSW_MB009, CLSW_MB012, CLSW_MB013, CLSW_MB014, CLSW_MB015, CLSW_MB016, CLSW_MB017_seq2, CLSW_MB018_seq2, CLSW_MB019_seq2, 
+        CLSW_MB020_seq2, CLSW_MB021_seq2, CLSW_MB022_seq2
+    MS: CLSW_MS007, CLSW_MS008, CLSW_MS009, CLSW_MS010, CLSW_MS011_seq2, CLSW_MS012_seq2, CLSW_MS013_seq2, CLSW_MS014_seq2
+    MX: CLSW_MX001_seq2, CLSW_MX002_seq2, CLSW_MX003_seq2, CLSW_MX004_seq2, CLSW_MX005_seq2
+    NBC: CLSW_NBC001_merged, CLSW_NBC002_merged, CLSW_NBC003_merged, CLSW_NBC004_merged
+    ON: CLSW_ON007, CLSW_ON008, CLSW_ON009, CLSW_ON010, CLSW_ON011, CLSW_ON012, CLSW_ON013, CLSW_ON014_seq2, CLSW_ON015_seq2, CLSW_ON016_seq2, 
+        CLSW_ON017_seq2, CLSW_ON018_seq2, CLSW_ON019_seq2, CLSW_ON020_seq2
+    SK: CLSW_SK002_seq2, CLSW_SK003_seq2, CLSW_SK004_seq2, CLSW_SK005_seq2, CLSW_SK_Bls_01, CLSW_SK_Bls_03, CLSW_SK_Bls_04, CLSW_SK_Bls_05, 
+        CLSW_SK_Bls_06, CLSW_SK_Bls_07_seq2, CLSW_SK_Bls_08_seq2, CLSW_SK_Ind_01, CLSW_SK_Ind_02, CLSW_SK_Ind_03_seq2, CLSW_SK_Ind_04_seq2, 
+        CLSW_SK_Ind_05, CLSW_SK_Ind_06, CLSW_SK_Ind_07_seq2
+    TX: CLSW_TX007, CLSW_TX008, CLSW_TX009, CLSW_TX010
+    VI: CLSW_VI_003_merged
+    WA: CLSW_WA001_seq2, CLSW_WA002, CLSW_WA003_merged, CLSW_WA004, CLSW_WA005, CLSW_WA006, CLSW_WA007, CLSW_WA008_seq2
+Working on 1 group(s) of populations:
+    defaultgrp: AZ, BC, CO, MB, MS, MX, NBC, ON, SK, TX, VI, WA
+
+SNPs and calls will be written in VCF format to '/lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/CLSW_21_24_oct/4_popstep_with_R_minmac_RandomSNP/populations.snps.vcf'
+Polymorphic sites in GenePop format will be written to '/lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/CLSW_21_24_oct/4_popstep_with_R_minmac_RandomSNP/populations.snps.genepop'
+Polymorphic sites in Structure format will be written to '/lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/CLSW_21_24_oct/4_popstep_with_R_minmac_RandomSNP/populations.structure'
+Polymorphic sites in PLINK format will be written to '/lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/CLSW_21_24_oct/4_popstep_with_R_minmac_RandomSNP/populations.plink.ped'
+Fixed difference sites in Phylip format will be written to '/lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/CLSW_21_24_oct/4_popstep_with_R_minmac_RandomSNP/populations.fixed.phylip'
+Raw haplotypes will be written to '/lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/CLSW_21_24_oct/4_popstep_with_R_minmac_RandomSNP/populations.haplotypes.tsv'
+Population-level summary statistics will be written to '/lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/CLSW_21_24_oct/4_popstep_with_R_minmac_RandomSNP/populations.sumstats.tsv'
+Population-level haplotype summary statistics will be written to '/lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/CLSW_21_24_oct/4_popstep_with_R_minmac_RandomSNP/populations.hapstats.tsv'
+
+Processing data in batches:
+  * load a batch of catalog loci and apply filters
+  * compute SNP- and haplotype-wise per-population statistics
+  * compute SNP- and haplotype-wise deviation from HWE
+  * compute F-statistics
+  * write the above statistics in the output files
+  * export the genotypes/haplotypes in specified format(s)
+More details in '/lustre06/project/6006972/AI_RADseq_ALFL_PUMA_CLSW_VGSW/CLSW_21_24_oct/4_popstep_with_R_minmac_RandomSNP/populations.log.distribs'.
+Now processing...
+CM026847.1 
+JADDRP030000578.1 
+JADDRP030000569.1 
+JADDRP030000058.1 
+CM026848.1 
+CM026849.1 
+JADDRP030000057.1 
+JADDRP030000075.1 
+JADDRP030000597.1 
+CM026850.1 
+JADDRP030000078.1 
+CM026851.1 
+JADDRP030000572.1 
+JADDRP030000052.1 
+CM026852.1 
+JADDRP030000586.1 
+CM026853.1 
+CM026854.1 
+CM026855.1 
+CM026856.1 
+CM026857.1 
+JADDRP030000604.1 
+CM026858.1 
+CM026859.1 
+JADDRP030000098.1 
+CM026860.1 
+CM026861.1 
+JADDRP030000612.1 
+CM026862.1 
+CM026863.1 
+CM026864.1 
+CM026865.1 
+CM026866.1 
+CM026867.1 
+CM026868.1 
+JADDRP030000067.1 
+CM026869.1 
+CM026870.1 
+CM026871.1 
+CM026872.1 
+CM026873.1 
+JADDRP030000116.1 
+JADDRP030000599.1 
+CM026874.1 
+CM026875.1 
+JADDRP030000110.1 
+JADDRP030000593.1 
+CM026876.1 
+JADDRP030000592.1 
+CM026877.1 
+CM026878.1 
+CM026879.1 
+JADDRP030000570.1 
+CM026880.1 
+CM026881.1 
+CM026882.1 
+CM026883.1 
+CM026884.1 
+JADDRP030000546.1 
+CM026885.1 
+CM037478.1 
+JADDRP030000048.1 
+JADDRP030000114.1 
+JADDRP030000591.1 
+JADDRP030000177.1 
+JADDRP030000124.1 
+JADDRP030000204.1 
+JADDRP030000406.1 
+JADDRP030000040.1 
+JADDRP030000041.1 
+JADDRP030000042.1 
+JADDRP030000043.1 
+JADDRP030000044.1 
+JADDRP030000045.1 
+JADDRP030000046.1 
+JADDRP030000047.1 
+JADDRP030000049.1 
+JADDRP030000050.1 
+JADDRP030000051.1 
+JADDRP030000054.1 
+JADDRP030000055.1 
+JADDRP030000056.1 
+JADDRP030000059.1 
+JADDRP030000061.1 
+JADDRP030000063.1 
+JADDRP030000064.1 
+JADDRP030000065.1 
+JADDRP030000066.1 
+JADDRP030000068.1 
+JADDRP030000069.1 
+JADDRP030000070.1 
+JADDRP030000071.1 
+JADDRP030000072.1 
+JADDRP030000073.1 
+JADDRP030000074.1 
+JADDRP030000076.1 
+JADDRP030000077.1 
+JADDRP030000079.1 
+JADDRP030000080.1 
+JADDRP030000081.1 
+JADDRP030000082.1 
+JADDRP030000083.1 
+JADDRP030000084.1 
+JADDRP030000086.1 
+JADDRP030000089.1 
+JADDRP030000090.1 
+JADDRP030000091.1 
+JADDRP030000093.1 
+JADDRP030000094.1 
+JADDRP030000095.1 
+JADDRP030000096.1 
+JADDRP030000097.1 
+JADDRP030000099.1 
+JADDRP030000100.1 
+JADDRP030000101.1 
+JADDRP030000102.1 
+JADDRP030000103.1 
+JADDRP030000104.1 
+JADDRP030000106.1 
+JADDRP030000107.1 
+JADDRP030000108.1 
+JADDRP030000111.1 
+JADDRP030000112.1 
+JADDRP030000113.1 
+JADDRP030000115.1 
+JADDRP030000117.1 
+JADDRP030000118.1 
+JADDRP030000120.1 
+JADDRP030000121.1 
+JADDRP030000122.1 
+JADDRP030000123.1 
+JADDRP030000128.1 
+JADDRP030000129.1 
+JADDRP030000130.1 
+JADDRP030000132.1 
+JADDRP030000133.1 
+JADDRP030000134.1 
+JADDRP030000135.1 
+JADDRP030000136.1 
+JADDRP030000139.1 
+JADDRP030000141.1 
+JADDRP030000143.1 
+JADDRP030000144.1 
+JADDRP030000146.1 
+JADDRP030000147.1 
+JADDRP030000148.1 
+JADDRP030000151.1 
+JADDRP030000152.1 
+JADDRP030000154.1 
+JADDRP030000157.1 
+JADDRP030000161.1 
+JADDRP030000162.1 
+JADDRP030000164.1 
+JADDRP030000165.1 
+JADDRP030000166.1 
+JADDRP030000171.1 
+JADDRP030000172.1 
+JADDRP030000174.1 
+JADDRP030000175.1 
+JADDRP030000176.1 
+JADDRP030000179.1 
+JADDRP030000180.1 
+JADDRP030000182.1 
+JADDRP030000183.1 
+JADDRP030000184.1 
+JADDRP030000187.1 
+JADDRP030000188.1 
+JADDRP030000190.1 
+JADDRP030000193.1 
+JADDRP030000194.1 
+JADDRP030000195.1 
+JADDRP030000197.1 
+JADDRP030000198.1 
+JADDRP030000199.1 
+JADDRP030000200.1 
+JADDRP030000201.1 
+JADDRP030000202.1 
+JADDRP030000205.1 
+JADDRP030000212.1 
+JADDRP030000214.1 
+JADDRP030000221.1 
+JADDRP030000223.1 
+JADDRP030000224.1 
+JADDRP030000227.1 
+JADDRP030000229.1 
+JADDRP030000230.1 
+JADDRP030000232.1 
+JADDRP030000236.1 
+JADDRP030000237.1 
+JADDRP030000238.1 
+JADDRP030000239.1 
+JADDRP030000242.1 
+JADDRP030000246.1 
+JADDRP030000247.1 
+JADDRP030000248.1 
+JADDRP030000249.1 
+JADDRP030000255.1 
+JADDRP030000257.1 
+JADDRP030000263.1 
+JADDRP030000264.1 
+JADDRP030000265.1 
+JADDRP030000267.1 
+JADDRP030000270.1 
+JADDRP030000273.1 
+JADDRP030000275.1 
+JADDRP030000276.1 
+JADDRP030000277.1 
+JADDRP030000283.1 
+JADDRP030000284.1 
+JADDRP030000287.1 
+JADDRP030000289.1 
+JADDRP030000292.1 
+JADDRP030000295.1 
+JADDRP030000298.1 
+JADDRP030000299.1 
+JADDRP030000300.1 
+JADDRP030000302.1 
+JADDRP030000304.1 
+JADDRP030000305.1 
+JADDRP030000307.1 
+JADDRP030000308.1 
+JADDRP030000312.1 
+JADDRP030000314.1 
+JADDRP030000315.1 
+JADDRP030000316.1 
+JADDRP030000322.1 
+JADDRP030000323.1 
+JADDRP030000324.1 
+JADDRP030000326.1 
+JADDRP030000331.1 
+JADDRP030000333.1 
+JADDRP030000344.1 
+JADDRP030000350.1 
+JADDRP030000351.1 
+JADDRP030000353.1 
+JADDRP030000356.1 
+JADDRP030000363.1 
+JADDRP030000365.1 
+JADDRP030000367.1 
+JADDRP030000368.1 
+JADDRP030000576.1 
+JADDRP030000380.1 
+JADDRP030000389.1 
+JADDRP030000391.1 
+JADDRP030000393.1 
+JADDRP030000396.1 
+JADDRP030000400.1 
+JADDRP030000405.1 
+JADDRP030000410.1 
+JADDRP030000411.1 
+JADDRP030000415.1 
+JADDRP030000421.1 
+JADDRP030000424.1 
+JADDRP030000433.1 
+JADDRP030000436.1 
+JADDRP030000438.1 
+JADDRP030000448.1 
+JADDRP030000456.1 
+JADDRP030000460.1 
+JADDRP030000484.1 
+JADDRP030000491.1 
+JADDRP030000505.1 
+JADDRP030000509.1 
+JADDRP030000574.1 
+JADDRP030000519.1 
+JADDRP030000524.1 
+JADDRP030000527.1 
+JADDRP030000530.1 
+JADDRP030000536.1 
+JADDRP030000545.1 
+JADDRP030000552.1 
+JADDRP030000577.1 
+JADDRP030000568.1 
+JADDRP030000573.1 
+JADDRP030000575.1 
+JADDRP030000579.1 
+JADDRP030000601.1 
+JADDRP030000614.1 
+JADDRP030000616.1 
+JADDRP030000580.1 
+JADDRP030000581.1 
+JADDRP030000589.1 
+JADDRP030000587.1 
+JADDRP030000584.1 
+JADDRP030000588.1 
+JADDRP030000607.1 
+
+Removed 2127559 loci that did not pass sample/population constraints from 2160011 loci.
+Kept 32452 loci, composed of 5705100 sites; 259623 of those sites were filtered, 21950 variant sites remained.
+    5635424 genomic sites, of which 65715 were covered by multiple loci (1.2%).
+Mean genotyped sites per locus: 162.13bp (stderr 0.27).
+
+Population summary statistics (more detail in populations.sumstats_summary.tsv):
+  AZ: 4.9314 samples per locus; pi: 0.097667; all/variant/polymorphic sites: 5261308/21950/8029; private alleles: 62
+  BC: 4.6284 samples per locus; pi: 0.086089; all/variant/polymorphic sites: 5261308/21950/6310; private alleles: 270
+  CO: 6.0252 samples per locus; pi: 0.068742; all/variant/polymorphic sites: 5261308/21950/6565; private alleles: 60
+  MB: 5.7144 samples per locus; pi: 0.094915; all/variant/polymorphic sites: 5261308/21950/8336; private alleles: 133
+  MS: 3.5577 samples per locus; pi: 0.079706; all/variant/polymorphic sites: 5261127/21949/4996; private alleles: 32
+  MX: 4.968 samples per locus; pi: 0.098093; all/variant/polymorphic sites: 5261308/21950/8134; private alleles: 59
+  NBC: 1.04 samples per locus; pi: 0.037917; all/variant/polymorphic sites: 116999/400/17; private alleles: 0
+  ON: 5.6891 samples per locus; pi: 0.074601; all/variant/polymorphic sites: 5261308/21950/6449; private alleles: 204
+  SK: 9.5118 samples per locus; pi: 0.076287; all/variant/polymorphic sites: 5261308/21950/10168; private alleles: 198
+  TX: 1.0061 samples per locus; pi: 0.02454; all/variant/polymorphic sites: 82156/163/4; private alleles: 0
+  VI: 1 samples per locus; pi: 0.043478; all/variant/polymorphic sites: 49175/161/7; private alleles: 0
+  WA: 7.939 samples per locus; pi: 0.098387; all/variant/polymorphic sites: 5261308/21950/11205; private alleles: 169
+
+Number of variable sites found to be significantly out of Hardy-Weinberg equilibrium (<0.05):
+  AZ: 28
+  BC: 340
+  CO: 107
+  MB: 92
+  MS: 0
+  MX: 40
+  NBC: 0
+  ON: 146
+  SK: 788
+  TX: 0
+  VI: 0
+  WA: 118
+Number of loci found to be significantly out of Hardy-Weinberg equilibrium (<0.05):
+  AZ: 24081
+  BC: 26366
+  CO: 26076
+  MB: 24951
+  MS: 27085
+  MX: 23988
+  NBC: 619
+  ON: 26211
+  SK: 22815
+  TX: 421
+  VI: 252
+  WA: 21023
+(more detail in populations.sumstats.tsv and populations.hapstats.tsv)
+
+Population pair divergence statistics (more in populations.fst_summary.tsv and populations.phistats_summary.tsv):
+  AZ-BC: mean Fst: 0.072; mean Phi_st: 0.026456; mean Fst': 0.010408; mean Dxy: 0.001264
+  AZ-CO: mean Fst: 0.061734; mean Phi_st: 0.023214; mean Fst': 0.0062577; mean Dxy: 0.0011496
+  AZ-MB: mean Fst: 0.061146; mean Phi_st: 0.019568; mean Fst': 0.0059057; mean Dxy: 0.0011483
+  AZ-MS: mean Fst: 0.074106; mean Phi_st: 0.01539; mean Fst': 0.0079268; mean Dxy: 0.0013005
+  AZ-MX: mean Fst: 0.059825; mean Phi_st: 0.0091337; mean Fst': 0.0027769; mean Dxy: 0.0011623
+  AZ-NBC: mean Fst: 0.20449; mean Phi_st: -0.03046; mean Fst': 0.11024; mean Dxy: 0.0021591
+  AZ-ON: mean Fst: 0.066437; mean Phi_st: 0.028935; mean Fst': 0.008871; mean Dxy: 0.0011849
+  AZ-SK: mean Fst: 0.049703; mean Phi_st: 0.024193; mean Fst': 0.005677; mean Dxy: 0.00099773
+  AZ-TX: mean Fst: 0.41908; mean Phi_st: 0.24828; mean Fst': 0.36334; mean Dxy: 0.0033369
+  AZ-VI: mean Fst: 0.21979; mean Phi_st: 0.0045424; mean Fst': 0.13448; mean Dxy: 0.0019039
+  AZ-WA: mean Fst: 0.047183; mean Phi_st: 0.01018; mean Fst': 0.0030611; mean Dxy: 0.001011
+  BC-CO: mean Fst: 0.069053; mean Phi_st: 0.032875; mean Fst': 0.011559; mean Dxy: 0.0012574
+  BC-MB: mean Fst: 0.068583; mean Phi_st: 0.028478; mean Fst': 0.011019; mean Dxy: 0.001246
+  BC-MS: mean Fst: 0.087037; mean Phi_st: 0.034444; mean Fst': 0.015331; mean Dxy: 0.0014395
+  BC-MX: mean Fst: 0.07186; mean Phi_st: 0.026716; mean Fst': 0.010852; mean Dxy: 0.0012451
+  BC-NBC: mean Fst: 0.14767; mean Phi_st: -0.080072; mean Fst': 0.063653; mean Dxy: 0.0022278
+  BC-ON: mean Fst: 0.073847; mean Phi_st: 0.038622; mean Fst': 0.014083; mean Dxy: 0.0013049
+  BC-SK: mean Fst: 0.0509; mean Phi_st: 0.022167; mean Fst': 0.0076898; mean Dxy: 0.0010827
+  BC-TX: mean Fst: 0.31993; mean Phi_st: 0.24002; mean Fst': 0.34356; mean Dxy: 0.0034837
+  BC-VI: mean Fst: 0.15506; mean Phi_st: -0.037982; mean Fst': 0.106; mean Dxy: 0.0020786
+  BC-WA: mean Fst: 0.053699; mean Phi_st: 0.017724; mean Fst': 0.0078002; mean Dxy: 0.0010684
+  CO-MB: mean Fst: 0.058735; mean Phi_st: 0.024099; mean Fst': 0.0068095; mean Dxy: 0.0011311
+  CO-MS: mean Fst: 0.074217; mean Phi_st: 0.03016; mean Fst': 0.011028; mean Dxy: 0.0012901
+  CO-MX: mean Fst: 0.061712; mean Phi_st: 0.02327; mean Fst': 0.0066518; mean Dxy: 0.0011305
+  CO-NBC: mean Fst: 0.20669; mean Phi_st: -0.01148; mean Fst': 0.13183; mean Dxy: 0.0020927
+  CO-ON: mean Fst: 0.060925; mean Phi_st: 0.027909; mean Fst': 0.008195; mean Dxy: 0.001172
+  CO-SK: mean Fst: 0.041268; mean Phi_st: 0.013184; mean Fst': 0.0032009; mean Dxy: 0.00096856
+  CO-TX: mean Fst: 0.49057; mean Phi_st: 0.36626; mean Fst': 0.46356; mean Dxy: 0.0038973
+  CO-VI: mean Fst: 0.21185; mean Phi_st: 0.016127; mean Fst': 0.14214; mean Dxy: 0.0020028
+  CO-WA: mean Fst: 0.044666; mean Phi_st: 0.011895; mean Fst': 0.0035888; mean Dxy: 0.00098236
+  MB-MS: mean Fst: 0.071547; mean Phi_st: 0.0216; mean Fst': 0.0095187; mean Dxy: 0.0012671
+  MB-MX: mean Fst: 0.06072; mean Phi_st: 0.019006; mean Fst': 0.0059366; mean Dxy: 0.0011323
+  MB-NBC: mean Fst: 0.17193; mean Phi_st: -0.044839; mean Fst': 0.097266; mean Dxy: 0.0021063
+  MB-ON: mean Fst: 0.062668; mean Phi_st: 0.028727; mean Fst': 0.0088478; mean Dxy: 0.0011774
+  MB-SK: mean Fst: 0.047196; mean Phi_st: 0.023173; mean Fst': 0.0055935; mean Dxy: 0.00099436
+  MB-TX: mean Fst: 0.43036; mean Phi_st: 0.28244; mean Fst': 0.38883; mean Dxy: 0.0035789
+  MB-VI: mean Fst: 0.20253; mean Phi_st: -0.0060782; mean Fst': 0.12807; mean Dxy: 0.0019101
+  MB-WA: mean Fst: 0.047168; mean Phi_st: 0.01522; mean Fst': 0.0043268; mean Dxy: 0.00099839
+  MS-MX: mean Fst: 0.073722; mean Phi_st: 0.015355; mean Fst': 0.0077701; mean Dxy: 0.0012757
+  MS-NBC: mean Fst: 0.25968; mean Phi_st: 0.030644; mean Fst': 0.12995; mean Dxy: 0.0027406
+  MS-ON: mean Fst: 0.077986; mean Phi_st: 0.033215; mean Fst': 0.012517; mean Dxy: 0.0013676
+  MS-SK: mean Fst: 0.052399; mean Phi_st: 0.016256; mean Fst': 0.0073718; mean Dxy: 0.0010623
+  MS-TX: mean Fst: 0.48214; mean Phi_st: 0.34978; mean Fst': 0.42816; mean Dxy: 0.0038922
+  MS-VI: mean Fst: 0.23956; mean Phi_st: 0.016223; mean Fst': 0.13071; mean Dxy: 0.002298
+  MS-WA: mean Fst: 0.052517; mean Phi_st: 0.0055687; mean Fst': 0.0053748; mean Dxy: 0.0010637
+  MX-NBC: mean Fst: 0.22225; mean Phi_st: 0.00022285; mean Fst': 0.13024; mean Dxy: 0.0022439
+  MX-ON: mean Fst: 0.065789; mean Phi_st: 0.027865; mean Fst': 0.0087823; mean Dxy: 0.0011713
+  MX-SK: mean Fst: 0.048843; mean Phi_st: 0.022624; mean Fst': 0.0054611; mean Dxy: 0.0009865
+  MX-TX: mean Fst: 0.46564; mean Phi_st: 0.30678; mean Fst': 0.40993; mean Dxy: 0.003623
+  MX-VI: mean Fst: 0.22617; mean Phi_st: 0.010346; mean Fst': 0.13978; mean Dxy: 0.0019568
+  MX-WA: mean Fst: 0.046573; mean Phi_st: 0.0092983; mean Fst': 0.0028192; mean Dxy: 0.00099221
+  NBC-ON: mean Fst: 0.20812; mean Phi_st: -0.0051574; mean Fst': 0.13158; mean Dxy: 0.0023442
+  NBC-SK: mean Fst: 0.11668; mean Phi_st: -0.11882; mean Fst': 0.07236; mean Dxy: 0.0016066
+  NBC-TX: mean Fst: 0.57143; mean Phi_st: 0.5; mean Fst': 0.5; mean Dxy: 0.0058103
+  NBC-VI: mean Fst: 0.54063; mean Phi_st: 0.33938; mean Fst': 0.33998; mean Dxy: 0.0045589
+  NBC-WA: mean Fst: 0.14812; mean Phi_st: -0.096416; mean Fst': 0.086629; mean Dxy: 0.0016836
+  ON-SK: mean Fst: 0.046768; mean Phi_st: 0.021656; mean Fst': 0.006103; mean Dxy: 0.0010002
+  ON-TX: mean Fst: 0.45825; mean Phi_st: 0.32675; mean Fst': 0.41756; mean Dxy: 0.0037712
+  ON-VI: mean Fst: 0.18189; mean Phi_st: -0.0073055; mean Fst': 0.11379; mean Dxy: 0.0020553
+  ON-WA: mean Fst: 0.04874; mean Phi_st: 0.017464; mean Fst': 0.0057874; mean Dxy: 0.0010109
+  SK-TX: mean Fst: 0.34843; mean Phi_st: 0.20876; mean Fst': 0.35082; mean Dxy: 0.0030518
+  SK-VI: mean Fst: 0.14728; mean Phi_st: -0.075513; mean Fst': 0.1156; mean Dxy: 0.0015385
+  SK-WA: mean Fst: 0.038225; mean Phi_st: 0.015104; mean Fst': 0.0031416; mean Dxy: 0.00089861
+  TX-VI: mean Fst: 0.4; mean Phi_st: 0.38462; mean Fst': 0.2381; mean Dxy: 0.0013465
+  TX-WA: mean Fst: 0.35346; mean Phi_st: 0.17075; mean Fst': 0.31924; mean Dxy: 0.0028609
+  VI-WA: mean Fst: 0.15972; mean Phi_st: -0.071056; mean Fst': 0.10668; mean Dxy: 0.0015607
+
+Populations is done.
