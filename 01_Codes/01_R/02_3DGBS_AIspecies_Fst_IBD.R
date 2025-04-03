@@ -298,11 +298,11 @@ head(gt.meta.tidy.clsw)
 gt.meta.tidy.clsw %>% group_by(Region) %>% summarise(N = n())
 # Region     N
 # AZ         5
-# BC         5
 # CO         8
 # MB         6
 # MS         4
 # MX         5
+# NBC        5
 # ON         7
 # SK        12
 # WA         8
@@ -774,11 +774,11 @@ d.pca %>% group_by(Species, Region) %>% summarise(N = n()) %>% print(n = 50)
 # ALFL    SK         7
 # ALFL    YT         2
 # CLSW    AZ         5
-# CLSW    BC         5
 # CLSW    CO         8
 # CLSW    MB         6
 # CLSW    MS         4
 # CLSW    MX         5
+# CLSW    NBC        5
 # CLSW    ON         7
 # CLSW    SK        12
 # CLSW    WA         8
@@ -796,6 +796,7 @@ d.pca %>% group_by(Species, Region) %>% summarise(N = n()) %>% print(n = 50)
 # VGSW    PI_BC      7
 # VGSW    SBC        5
 # VGSW    WA         9
+
 d.pca <- d.pca %>% 
   mutate(Region = ifelse(Region %in% c("PI_BC", "VI") & Species %in% "PUMA", "PI and VI",
                          ifelse(Region %in% "PI_BC", "PI",
@@ -804,12 +805,12 @@ d.pca <- d.pca %>%
                                             "AB","MB","SK","CO","NM","MX","GU","HO",  
                                             "ON","SWON","NL","NC","MS","LA")),
          Season = factor(Season.TT, levels = c("Breeding","Migrating")))
-write.csv(d.pca, file = "./02_Results/06_PCA/PCA.data.csv", row.names = F)
+# write.csv(d.pca, file = "./02_Results/06_PCA/PCA.data.csv", row.names = F)
 
 
 ## Figures ---------------------------------------------------------------
 
-region_colors <- c("YT" = "#A2E8F0", "NBC" = "#0000FF", "BC" = "#0000FF", "SBC" = "#0000FF", 
+region_colors <- c("YT" = "#A2E8F0", "NBC" = "#0000FF", "SBC" = "#0000FF", 
                    "VI" = "#0086FF", "PI" = "#0086FF", "PI and VI" = "#0086FF", "WA" = "#8AB3FF", 
                    "MT" = "#1380B6", "NV" = "#00327E", "AZ" = "#18579A", "AB" = "#E32DD7", 
                    "MB" = "#CD6EF7", "SK" = "#942FEF", "CO" = "#8556AB", "NM" = "#D998E8", 
@@ -1038,8 +1039,8 @@ gl.clsw.reg <- gl.clsw
 pop(gl.clsw.reg) <- data.frame(Indiv = indNames(gl.clsw.reg)) %>% 
   left_join(gt.meta.tidy, by = "Indiv") %>% pull(Region_merge)
 table(pop(gl.clsw.reg), useNA = "ifany")
-# AZ BC CO MB MS MX ON SK WA 
-#  5  5  8  6  4  5  7 12  8
+# AZ  CO  MB  MS  MX NBC  ON  SK  WA 
+#  5   8   6   4   5   5   7  12   8
 
 # Remove or merge regions with <5 samples
 # Keeping all regions for now, since all but MS, which has N = 4, have N ≥ 5
@@ -1067,8 +1068,8 @@ FST.clsw.regionssnps <- read.csv("./02_Results/08_Fst/FST_clsw_neutral_regions.c
 
 # Map population factors to numeric values while keeping original labels for plotting
 FST.clsw.regionssnps <- FST.clsw.regionssnps %>%
-  mutate(Population1 = factor(Population1, levels = c("BC","WA","AZ","SK","MB","CO","MX","MS","ON")),
-         Population2 = factor(Population2, levels = c("BC","WA","AZ","SK","MB","CO","MX","MS","ON")),
+  mutate(Population1 = factor(Population1, levels = c("NBC","WA","AZ","SK","MB","CO","MX","MS","ON")),
+         Population2 = factor(Population2, levels = c("NBC","WA","AZ","SK","MB","CO","MX","MS","ON")),
          Population1_num = as.numeric(Population1),  # Convert to numeric for plotting
          Population2_num = as.numeric(Population2),
          upper_tri = Population1_num < Population2_num,  # Upper triangle distinction
@@ -1085,8 +1086,8 @@ gFST.clsw.regions <- FST.clsw.regionssnps %>%
   geom_tile(data = filter(FST.clsw.regionssnps, !upper_tri), fill = NA, colour = "white") +
   geom_text(data = filter(FST.clsw.regionssnps, !upper_tri), aes(label = Sign), size = 9) +
   # Reverse Y axis to maintain diagonal alignment and correct positioning
-  scale_y_reverse(breaks = 1:9, labels = c("BC","WA","AZ","SK","MB","CO","MX","MS","ON")) +
-  scale_x_continuous(breaks = 1:9, labels = c("BC","WA","AZ","SK","MB","CO","MX","MS","ON")) +
+  scale_y_reverse(breaks = 1:9, labels = c("NBC","WA","AZ","SK","MB","CO","MX","MS","ON")) +
+  scale_x_continuous(breaks = 1:9, labels = c("NBC","WA","AZ","SK","MB","CO","MX","MS","ON")) +
   # Color scale for upper half
   scale_fill_viridis_c(name = "Fst", na.value = "white") +
   # Add title
@@ -1312,6 +1313,8 @@ str(FST.regions)
 ggplot(FST.regions, aes(x = Nind1, y = Nind2, fill = Fst)) +
   geom_tile() +
   scale_fill_viridis_c() +
+  scale_x_continuous(breaks = 1:12) +
+  scale_y_continuous(breaks = 1:12) +
   labs(x = "Sample Size Population 1", y = "Sample Size Population 2", 
        fill = "Fst", title = "Heatmap of Fst by Population Sample Sizes") +
   theme_minimal()
@@ -1344,7 +1347,6 @@ ggplot(FST.regions, aes(x = min_size_category, y = Fst)) +
   labs(x = "Minimum Sample Size Category", y = "Fst",
        title = "Fst by Minimum Sample Size Category") +
   theme_minimal()
-
 
 # Use hierfstat to estimate fst and fst' to check differences in results
 # Check this out as well: https://grunwaldlab.github.io/Population_Genetics_in_R/Pop_Structure.html
