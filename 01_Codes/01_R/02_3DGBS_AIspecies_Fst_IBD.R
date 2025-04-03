@@ -718,23 +718,23 @@ gPCA.var
 
 pca.alfl <- pca.list[["ALFL"]] %>% QuickPop::pca_scoretable(naxe = 6) %>%
   mutate(ID = gsub(".sorted", "", ID),
-         SNPs = "all") %>%
+         SNPs = "neutral") %>%
   left_join(gt.meta.tidy, by = c("ID" = "Indiv")) %>%
   droplevels()  # to remove unused Pop levels
 
 pca.clsw <- pca.list[["CLSW"]] %>% QuickPop::pca_scoretable(naxe = 6) %>%
-  mutate(SNPs = "all") %>% 
+  mutate(SNPs = "neutral") %>% 
   left_join(gt.meta.tidy, by = c("ID" = "Indiv")) %>%
   droplevels()  # to remove unused Pop levels
 
 pca.puma <- pca.list[["PUMA"]] %>% QuickPop::pca_scoretable(naxe = 6) %>%
   mutate(ID = gsub(".sorted", "", ID),
-         SNPs = "all") %>%
+         SNPs = "neutral") %>%
   left_join(gt.meta.tidy, by = c("ID" = "Indiv")) %>%
   droplevels()  # to remove unused Pop levels
 
 pca.vgsw <- pca.list[["VGSW"]] %>% QuickPop::pca_scoretable(naxe = 6) %>%
-  mutate(SNPs = "all") %>% 
+  mutate(SNPs = "neutral") %>% 
   left_join(gt.meta.tidy, by = c("ID" = "Indiv")) %>%
   droplevels()  # to remove unused Pop levels
 
@@ -742,6 +742,7 @@ d.pca <- bind_rows(pca.alfl,
                    pca.clsw,
                    pca.puma,
                    pca.vgsw)
+colnames(d.pca)[9] <- "ID.original"
 
 # Add Season defined by Thilini
 d.pca.tt <- read.csv("./00_Data/00_fileinfo/PCA.data_TT_March_25.csv")
@@ -760,23 +761,61 @@ d.pca %>% group_by(Season.TT) %>% summarise(N = n())
 # Season.TT     N
 # Breeding    140
 # Migrating    40
-# write.csv(d.pca, file = "./02_Results/06_PCA/PCA.data.csv", row.names = F)
+
+d.pca %>% group_by(Species, Region) %>% summarise(N = n()) %>% print(n = 50)
+# Species Region     N
+# ALFL    AB         8
+# ALFL    GU         2
+# ALFL    HO         1
+# ALFL    LA         3
+# ALFL    MT         1
+# ALFL    NBC       11
+# ALFL    NL         1
+# ALFL    SK         7
+# ALFL    YT         2
+# CLSW    AZ         5
+# CLSW    BC         5
+# CLSW    CO         8
+# CLSW    MB         6
+# CLSW    MS         4
+# CLSW    MX         5
+# CLSW    ON         7
+# CLSW    SK        12
+# CLSW    WA         8
+# PUMA    NC         4
+# PUMA    NV         2
+# PUMA    PI_BC      8
+# PUMA    SBC        1
+# PUMA    SK        12
+# PUMA    SWON      10
+# PUMA    VI         1
+# PUMA    WA         5
+# VGSW    CO         8
+# VGSW    NM         2
+# VGSW    NV        10
+# VGSW    PI_BC      7
+# VGSW    SBC        5
+# VGSW    WA         9
+d.pca <- d.pca %>% 
+  mutate(Region = ifelse(Region %in% c("PI_BC", "VI") & Species %in% "PUMA", "PI and VI",
+                         ifelse(Region %in% "PI_BC", "PI",
+                                Region))) %>% 
+  mutate(Region = factor(Region, levels = c("YT","NBC","BC","SBC","VI","PI","PI and VI","WA","MT","NV","AZ",  
+                                            "AB","MB","SK","CO","NM","MX","GU","HO",  
+                                            "ON","SWON","NL","NC","MS","LA")),
+         Season = factor(Season.TT, levels = c("Breeding","Migrating")))
+write.csv(d.pca, file = "./02_Results/06_PCA/PCA.data.csv", row.names = F)
 
 
 ## Figures ---------------------------------------------------------------
 
-d.pca <- d.pca %>%
-  mutate(Region = factor(Region, levels = c("YT","NBC","BC","SBC","VI","PI_BC","WA","MT","NV","AZ",  
-                                            "AB","MB","SK","CO","NM","MX","GU","HO",  
-                                            "ON","SWON","NL","NC","MS","LA")),
-         Season = factor(Season.TT, levels = c("Breeding","Migrating")))
-
 region_colors <- c("YT" = "#A2E8F0", "NBC" = "#0000FF", "BC" = "#0000FF", "SBC" = "#0000FF", 
-                   "VI" = "#0086FF", "PI_BC" = "#0086FF", "WA" = "#8AB3FF", "MT" = "#1380B6",
-                   "NV" = "#00327E", "AZ" = "#18579A", "AB" = "#E32DD7", "MB" = "#CD6EF7",
-                   "SK" = "#942FEF", "CO" = "#8556AB", "NM" = "#D998E8", "MX" = "#ff84ff",
-                   "GU" = "#D998E8", "HO" = "#8B4CC1", "ON" = "#C40000", "SWON" = "#C40000",
-                   "NL" = "#FF2D15", "NC" = "#F96D6D", "MS" = "#8B0000", "LA" = "#FF7C00")
+                   "VI" = "#0086FF", "PI" = "#0086FF", "PI and VI" = "#0086FF", "WA" = "#8AB3FF", 
+                   "MT" = "#1380B6", "NV" = "#00327E", "AZ" = "#18579A", "AB" = "#E32DD7", 
+                   "MB" = "#CD6EF7", "SK" = "#942FEF", "CO" = "#8556AB", "NM" = "#D998E8", 
+                   "MX" = "#ff84ff", "GU" = "#D998E8", "HO" = "#8B4CC1", "ON" = "#C40000", 
+                   "SWON" = "#C40000", "NL" = "#FF2D15", "NC" = "#F96D6D", "MS" = "#8B0000", 
+                   "LA" = "#FF7C00")
 season_shapes <- c(19,17)
 
 # Create separate plots
@@ -850,3 +889,470 @@ gPCA.3v4
 # ggsave(filename = "./02_Results/06_PCA/PCA.3v4.species.png",
 #        plot = gPCA.3v4,
 #        width = 20, height = 15, units = "in")
+
+
+l_gPCA.5v6 <- list()
+for(sp in l_species){
+  species_data <- d.pca %>% filter(Species == sp)
+  pcavar <- pca.var %>% filter(Species == sp)
+  
+  # Subset colors for only the regions present in this species
+  species_colors <- region_colors[names(region_colors) %in% unique(species_data$Region)]
+  
+  l_gPCA.5v6[[sp]] <- ggplot(species_data, aes(x = score.PC5, y = score.PC6, col = Region, shape = Season.TT)) +
+    geom_hline(yintercept = 0) +
+    geom_vline(xintercept = 0) +
+    geom_point(stroke = 1, size = 6, alpha = 0.5) +
+    scale_color_manual(values = species_colors, guide = guide_legend(ncol = 1), name = "Region",) +
+    scale_shape_manual(values = season_shapes, name = "Season",) +
+    guides(color = guide_legend(order = 1),  # Fix legend order 
+           shape = guide_legend(order = 2)) +
+    labs(x = paste0("PC5 (", round(pcavar$p.eig[pcavar$axis %in% 5 & pcavar$Species %in% sp], 4)*100, "%)"), 
+         y = paste0("PC6 (", round(pcavar$p.eig[pcavar$axis %in% 6 & pcavar$Species %in% sp], 4)*100, "%)"), 
+         title = sp) +
+    theme_bw(base_size = 20) +
+    theme(axis.text = element_text(size = 18, colour = "black"),
+          axis.title.y.right = element_text(angle = 90),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          panel.border = element_rect(colour = "black", fill = NA, size = 1))
+}
+
+# Combine plots with patchwork
+gPCA.5v6 <- wrap_plots(l_gPCA.5v6) 
+gPCA.5v6
+# ggsave(filename = "./02_Results/06_PCA/PCA.5v6.species.png",
+#        plot = gPCA.5v6,
+#        width = 20, height = 15, units = "in")
+
+
+
+
+# Fst ---------------------------------------------------------------------
+
+parallel::detectCores()
+head(gt.meta.tidy)
+
+# Regions with < 5 samples should be excluded, unless they can be merged to other very close areas (e.g., VI, PI_BC, SBC)
+# 4 could already be acceptable but check results out
+
+gt.meta.tidy %>% group_by(Species, Region) %>% summarise(N = n()) %>% print(n = 50)
+# ALFL: keep AB, NBC, SK; remove GU, HO, LA, MT, NL, YT; merge nothing
+# CLSW: keep all regions (MS 4 specimens, trying it as it is for now)
+# PUMA: keep NC, SK, SWON, WA; remove NV; merge PI_BC-SBC-VI
+# VGSW: keep CO, NV, PI_BC, SBC, WA; remove NM; merge nothing
+gt.meta.tidy <- gt.meta.tidy %>% 
+  mutate(Region_merge = ifelse(Species %in% "PUMA" & Region %in% c("PI_BC","SBC","VI"), "SBC and VI",
+                               ifelse(Region %in% "PI_BC", "PI",
+                                      Region)))
+gt.meta.tidy %>% group_by(Species, Region_merge) %>% summarise(N = n()) %>% print(n = 50)
+
+
+## ALFL -------------------------------------------------------------------
+# Putative neutral SNPs
+
+gl.alfl.reg <- gl.alfl
+pop(gl.alfl.reg) <- data.frame(Indiv = indNames(gl.alfl.reg)) %>% 
+  left_join(gt.meta.tidy, by = "Indiv") %>% pull(Region_merge)
+table(pop(gl.alfl.reg), useNA = "ifany")
+# AB GU HO LA MT NBC NL SK YT 
+#  8  2  1  3  1  11  1  7  2
+
+# Remove or merge regions with <5 samples
+id_alfl_fst <- gt.meta.tidy %>% filter(Species %in% "ALFL", Region %nin% c("AB","NBC","SK")) %>% pull(Indiv)
+gl.alfl.reg <- gl.drop.ind(gl.alfl.reg, id_alfl_fst, recalc = T, verbose = 5)
+table(pop(gl.alfl.reg), useNA = "ifany")
+# AB NBC SK 
+#  8  11  7
+
+# Fst
+# FST.alfl.regionssnps.matrix <- gl.fst.pop(gl.alfl.reg, nboots = 999, percent = 95, nclusters = 15)  # using 9999 results are pretty much the same
+# FST.alfl.regionssnps.matrix$Pvalues
+# FST.alfl.regionssnps.matrix %>% table.fst() %>%
+#   summarise(Mean = mean(Fst),
+#             sd = sd(Fst),
+#             Min = min(Fst),
+#             Max = max(Fst),
+#             Max.Pvalue = round(max(`p-value`),))
+# save(list = c("FST.alfl.regionssnps.matrix"), file = "./02_Results/08_Fst/Fst_alfl_neutral.Rdata")
+load("./02_Results/08_Fst/Fst_alfl_neutral.Rdata")
+# FST.alfl.regionssnps <- FST.alfl.regionssnps.matrix %>% heat.fst() %>%
+#   mutate(Sign = ifelse(`p-value` <= 0.05 & `p-value` > 0.01, "*",
+#                        ifelse(`p-value` <= 0.01 & `p-value` > 0.001, "**",
+#                               ifelse(`p-value` <= 0.001, "***",
+#                                      "ns")))) %>%
+#   # select(Population1, Population2, Fst, `p-value`) %>%
+#   arrange(Population1, Population2)
+# write.csv(FST.alfl.regionssnps, file = "./02_Results/08_Fst/FST_alfl_neutral_regions.csv", row.names = F)
+FST.alfl.regionssnps <- read.csv("./02_Results/08_Fst/FST_alfl_neutral_regions.csv")
+
+# Map population factors to numeric values while keeping original labels for plotting
+FST.alfl.regionssnps <- FST.alfl.regionssnps %>%
+  mutate(Population1 = factor(Population1, levels = c("NBC","AB","SK")),
+         Population2 = factor(Population2, levels = c("NBC","AB","SK")),
+         Population1_num = as.numeric(Population1),  # Convert to numeric for plotting
+         Population2_num = as.numeric(Population2),
+         upper_tri = Population1_num < Population2_num,
+         Species = "ALFL")  # Upper triangle distinction
+
+# Plot
+gFST.alfl.regions <- FST.alfl.regionssnps %>%
+  ggplot(aes(x = Population1_num, y = Population2_num)) +
+  # Upper triangle: Fst values with colors and numbers
+  geom_tile(data = filter(FST.alfl.regionssnps, upper_tri), aes(fill = Fst), colour = "white") +
+  geom_text(data = filter(FST.alfl.regionssnps, upper_tri), aes(label = round(Fst, digits = 3)), 
+            color = "white", size = 9) +
+  # Lower triangle: Sign values (*, **, ***, ns) without color
+  geom_tile(data = filter(FST.alfl.regionssnps, !upper_tri), fill = NA, colour = "white") +
+  geom_text(data = filter(FST.alfl.regionssnps, !upper_tri), aes(label = Sign), size = 9) +
+  # Reverse Y axis to maintain diagonal alignment and correct positioning
+  scale_y_reverse(breaks = 1:3, labels = c("NBC","AB","SK")) +
+  scale_x_continuous(breaks = 1:3, labels = c("NBC","AB","SK")) +
+  # Color scale for upper half
+  scale_fill_viridis_c(name = "Fst", na.value = "white") +
+  # Add title
+  ggtitle("ALFL") + 
+  # Theme and formatting
+  labs(x = NULL, y = NULL) +
+  theme_minimal() +
+  theme(legend.key.size = unit(1.25, "cm"),
+        legend.title = element_text(size = 30),
+        legend.text = element_text(size = 22),
+        strip.text = element_text(angle = 0),
+        panel.grid = element_blank(),
+        panel.spacing = unit(0, "cm"),
+        panel.border = element_rect(fill = NA, colour = "black"),
+        panel.background = element_rect(fill = "white"),
+        plot.background = element_rect(fill = "white", colour = "white"),
+        axis.title.x = element_blank(),
+        axis.text.x = element_text(angle = 0, vjust = 0.5, hjust = 0.5),
+        axis.text = element_text(size = 27.5, color = "black"),
+        plot.title = element_text(size = 30, face = "bold"))
+gFST.alfl.regions
+
+
+## CLSW -------------------------------------------------------------------
+# Putative neutral SNPs
+
+gl.clsw.reg <- gl.clsw
+pop(gl.clsw.reg) <- data.frame(Indiv = indNames(gl.clsw.reg)) %>% 
+  left_join(gt.meta.tidy, by = "Indiv") %>% pull(Region_merge)
+table(pop(gl.clsw.reg), useNA = "ifany")
+# AZ BC CO MB MS MX ON SK WA 
+#  5  5  8  6  4  5  7 12  8
+
+# Remove or merge regions with <5 samples
+# Keeping all regions for now, since all but MS, which has N = 4, have N ≥ 5
+
+# Fst
+# FST.clsw.regionssnps.matrix <- gl.fst.pop(gl.clsw.reg, nboots = 999, percent = 95, nclusters = 15)  # using 9999 results are pretty much the same
+# FST.clsw.regionssnps.matrix$Pvalues
+# FST.clsw.regionssnps.matrix %>% table.fst() %>%
+#   summarise(Mean = mean(Fst),
+#             sd = sd(Fst),
+#             Min = min(Fst),
+#             Max = max(Fst),
+#             Max.Pvalue = round(max(`p-value`),))
+# save(list = c("FST.clsw.regionssnps.matrix"), file = "./02_Results/08_Fst/Fst_clsw_neutral.Rdata")
+load("./02_Results/08_Fst/Fst_clsw_neutral.Rdata")
+# FST.clsw.regionssnps <- FST.clsw.regionssnps.matrix %>% heat.fst() %>%
+#   mutate(Sign = ifelse(`p-value` <= 0.05 & `p-value` > 0.01, "*",
+#                        ifelse(`p-value` <= 0.01 & `p-value` > 0.001, "**",
+#                               ifelse(`p-value` <= 0.001, "***",
+#                                      "ns")))) %>%
+#   # select(Population1, Population2, Fst, `p-value`) %>%
+#   arrange(Population1, Population2)
+# write.csv(FST.clsw.regionssnps, file = "./02_Results/08_Fst/FST_clsw_neutral_regions.csv", row.names = F)
+FST.clsw.regionssnps <- read.csv("./02_Results/08_Fst/FST_clsw_neutral_regions.csv")
+
+# Map population factors to numeric values while keeping original labels for plotting
+FST.clsw.regionssnps <- FST.clsw.regionssnps %>%
+  mutate(Population1 = factor(Population1, levels = c("BC","WA","AZ","SK","MB","CO","MX","MS","ON")),
+         Population2 = factor(Population2, levels = c("BC","WA","AZ","SK","MB","CO","MX","MS","ON")),
+         Population1_num = as.numeric(Population1),  # Convert to numeric for plotting
+         Population2_num = as.numeric(Population2),
+         upper_tri = Population1_num < Population2_num,  # Upper triangle distinction
+         Species = "CLSW")
+
+# Plot
+gFST.clsw.regions <- FST.clsw.regionssnps %>%
+  ggplot(aes(x = Population1_num, y = Population2_num)) +
+  # Upper triangle: Fst values with colors and numbers
+  geom_tile(data = filter(FST.clsw.regionssnps, upper_tri), aes(fill = Fst), colour = "white") +
+  geom_text(data = filter(FST.clsw.regionssnps, upper_tri), aes(label = round(Fst, digits = 3)), 
+            color = "white", size = 9) +
+  # Lower triangle: Sign values (*, **, ***, ns) without color
+  geom_tile(data = filter(FST.clsw.regionssnps, !upper_tri), fill = NA, colour = "white") +
+  geom_text(data = filter(FST.clsw.regionssnps, !upper_tri), aes(label = Sign), size = 9) +
+  # Reverse Y axis to maintain diagonal alignment and correct positioning
+  scale_y_reverse(breaks = 1:9, labels = c("BC","WA","AZ","SK","MB","CO","MX","MS","ON")) +
+  scale_x_continuous(breaks = 1:9, labels = c("BC","WA","AZ","SK","MB","CO","MX","MS","ON")) +
+  # Color scale for upper half
+  scale_fill_viridis_c(name = "Fst", na.value = "white") +
+  # Add title
+  ggtitle("CLSW") + 
+  # Theme and formatting
+  labs(x = NULL, y = NULL) +
+  theme_minimal() +
+  theme(legend.key.size = unit(1.25, "cm"),
+        legend.title = element_text(size = 30),
+        legend.text = element_text(size = 22),
+        strip.text = element_text(angle = 0),
+        panel.grid = element_blank(),
+        panel.spacing = unit(0, "cm"),
+        panel.border = element_rect(fill = NA, colour = "black"),
+        panel.background = element_rect(fill = "white"),
+        plot.background = element_rect(fill = "white", colour = "white"),
+        axis.title.x = element_blank(),
+        axis.text.x = element_text(angle = 0, vjust = 0.5, hjust = 0.5),
+        axis.text = element_text(size = 27.5, color = "black"),
+        plot.title = element_text(size = 30, face = "bold"))
+gFST.clsw.regions
+
+
+## PUMA -------------------------------------------------------------------
+# Putative neutral SNPs
+
+gl.puma.reg <- gl.puma
+pop(gl.puma.reg) <- data.frame(Indiv = indNames(gl.puma.reg)) %>% 
+  left_join(gt.meta.tidy, by = "Indiv") %>% pull(Region_merge)
+table(pop(gl.puma.reg), useNA = "ifany")
+# NC NV SBC and VI SK SWON WA 
+#  4  2         10 12   10  5
+
+# Remove regions with <5 samples
+id_puma_fst <- gt.meta.tidy %>% filter(Species %in% "PUMA", Region_merge %nin% c("NC","SBC and VI","SK","SWON","WA")) %>% pull(Indiv)
+gl.puma.reg <- gl.drop.ind(gl.puma.reg, id_puma_fst, recalc = T, verbose = 5)
+table(pop(gl.puma.reg), useNA = "ifany")
+# NC SBC and VI SK SWON WA 
+#  4         10 12   10  5
+
+# Fst
+# FST.puma.regionssnps.matrix <- gl.fst.pop(gl.puma.reg, nboots = 999, percent = 95, nclusters = 15)  # using 9999 results are pretty much the same
+# FST.puma.regionssnps.matrix$Pvalues
+# FST.puma.regionssnps.matrix %>% table.fst() %>%
+#   summarise(Mean = mean(Fst),
+#             sd = sd(Fst),
+#             Min = min(Fst),
+#             Max = max(Fst),
+#             Max.Pvalue = round(max(`p-value`),))
+# save(list = c("FST.puma.regionssnps.matrix"), file = "./02_Results/08_Fst/Fst_puma_neutral.Rdata")
+load("./02_Results/08_Fst/Fst_puma_neutral.Rdata")
+# FST.puma.regionssnps <- FST.puma.regionssnps.matrix %>% heat.fst() %>%
+#   mutate(Sign = ifelse(`p-value` <= 0.05 & `p-value` > 0.01, "*",
+#                        ifelse(`p-value` <= 0.01 & `p-value` > 0.001, "**",
+#                               ifelse(`p-value` <= 0.001, "***",
+#                                      "ns")))) %>%
+#   # select(Population1, Population2, Fst, `p-value`) %>%
+#   arrange(Population1, Population2)
+# write.csv(FST.puma.regionssnps, file = "./02_Results/08_Fst/FST_puma_neutral_regions.csv", row.names = F)
+FST.puma.regionssnps <- read.csv("./02_Results/08_Fst/FST_puma_neutral_regions.csv")
+
+# Map population factors to numeric values while keeping original labels for plotting
+FST.puma.regionssnps <- FST.puma.regionssnps %>%
+  mutate(Population1 = factor(Population1, levels = c("SBC and VI","WA","SK","NC","SWON")),
+         Population2 = factor(Population2, levels = c("SBC and VI","WA","SK","NC","SWON")),
+         Population1_num = as.numeric(Population1),  # Convert to numeric for plotting
+         Population2_num = as.numeric(Population2),
+         upper_tri = Population1_num < Population2_num,  # Upper triangle distinction
+         Species = "PUMA")
+
+# Plot
+gFST.puma.regions <- FST.puma.regionssnps %>%
+  ggplot(aes(x = Population1_num, y = Population2_num)) +
+  # Upper triangle: Fst values with colors and numbers
+  geom_tile(data = filter(FST.puma.regionssnps, upper_tri), aes(fill = Fst), colour = "white") +
+  geom_text(data = filter(FST.puma.regionssnps, upper_tri), aes(label = round(Fst, digits = 3)), 
+            color = "white", size = 9) +
+  # Lower triangle: Sign values (*, **, ***, ns) without color
+  geom_tile(data = filter(FST.puma.regionssnps, !upper_tri), fill = NA, colour = "white") +
+  geom_text(data = filter(FST.puma.regionssnps, !upper_tri), aes(label = Sign), size = 9) +
+  # Reverse Y axis to maintain diagonal alignment and correct positioning
+  scale_y_reverse(breaks = 1:5, labels = c("SBC and VI","WA","SK","NC","SWON")) +
+  scale_x_continuous(breaks = 1:5, labels = c("SBC and VI","WA","SK","NC","SWON")) +
+  # Color scale for upper half
+  scale_fill_viridis_c(name = "Fst", na.value = "white") +
+  # Add title
+  ggtitle("PUMA") + 
+  # Theme and formatting
+  labs(x = NULL, y = NULL) +
+  theme_minimal() +
+  theme(legend.key.size = unit(1.25, "cm"),
+        legend.title = element_text(size = 30),
+        legend.text = element_text(size = 22),
+        strip.text = element_text(angle = 0),
+        panel.grid = element_blank(),
+        panel.spacing = unit(0, "cm"),
+        panel.border = element_rect(fill = NA, colour = "black"),
+        panel.background = element_rect(fill = "white"),
+        plot.background = element_rect(fill = "white", colour = "white"),
+        axis.title.x = element_blank(),
+        axis.text.x = element_text(angle = 0, vjust = 0.5, hjust = 0.5),
+        axis.text = element_text(size = 27.5, color = "black"),
+        plot.title = element_text(size = 30, face = "bold"))
+gFST.puma.regions
+
+
+## VGSW -------------------------------------------------------------------
+# Putative neutral SNPs
+
+gl.vgsw.reg <- gl.vgsw
+pop(gl.vgsw.reg) <- data.frame(Indiv = indNames(gl.vgsw.reg)) %>% 
+  left_join(gt.meta.tidy, by = "Indiv") %>% pull(Region_merge)
+table(pop(gl.vgsw.reg), useNA = "ifany")
+# CO NM NV PI SBC WA 
+#  8  2 10  7   5  9
+
+# Remove regions with <5 samples
+id_vgsw_fst <- gt.meta.tidy %>% filter(Species %in% "VGSW", Region_merge %nin% c("CO","NV","PI","SBC","WA")) %>% pull(Indiv)
+gl.vgsw.reg <- gl.drop.ind(gl.vgsw.reg, id_vgsw_fst, recalc = T, verbose = 5)
+table(pop(gl.vgsw.reg), useNA = "ifany")
+# CO NV PI SBC WA 
+#  8 10  7   5  9
+
+# Fst
+# FST.vgsw.regionssnps.matrix <- gl.fst.pop(gl.vgsw.reg, nboots = 999, percent = 95, nclusters = 15)  # using 9999 results are pretty much the same
+# FST.vgsw.regionssnps.matrix$Pvalues
+# FST.vgsw.regionssnps.matrix %>% table.fst() %>%
+#   summarise(Mean = mean(Fst),
+#             sd = sd(Fst),
+#             Min = min(Fst),
+#             Max = max(Fst),
+#             Max.Pvalue = round(max(`p-value`),))
+# save(list = c("FST.vgsw.regionssnps.matrix"), file = "./02_Results/08_Fst/Fst_vgsw_neutral.Rdata")
+load("./02_Results/08_Fst/Fst_vgsw_neutral.Rdata")
+# FST.vgsw.regionssnps <- FST.vgsw.regionssnps.matrix %>% heat.fst() %>%
+#   mutate(Sign = ifelse(`p-value` <= 0.05 & `p-value` > 0.01, "*",
+#                        ifelse(`p-value` <= 0.01 & `p-value` > 0.001, "**",
+#                               ifelse(`p-value` <= 0.001, "***",
+#                                      "ns")))) %>%
+#   # select(Population1, Population2, Fst, `p-value`) %>%
+#   arrange(Population1, Population2)
+# write.csv(FST.vgsw.regionssnps, file = "./02_Results/08_Fst/FST_vgsw_neutral_regions.csv", row.names = F)
+FST.vgsw.regionssnps <- read.csv("./02_Results/08_Fst/FST_vgsw_neutral_regions.csv")
+
+# Map population factors to numeric values while keeping original labels for plotting
+FST.vgsw.regionssnps <- FST.vgsw.regionssnps %>%
+  mutate(Population1 = factor(Population1, levels = c("PI","SBC","WA","NV","CO")),     
+         Population2 = factor(Population2, levels = c("PI","SBC","WA","NV","CO")),
+         Population1_num = as.numeric(Population1),  # Convert to numeric for plotting
+         Population2_num = as.numeric(Population2),
+         upper_tri = Population1_num < Population2_num,  # Upper triangle distinction
+         Species = "VGSW")
+
+# Plot
+gFST.vgsw.regions <- FST.vgsw.regionssnps %>%
+  ggplot(aes(x = Population1_num, y = Population2_num)) +
+  # Upper triangle: Fst values with colors and numbers
+  geom_tile(data = filter(FST.vgsw.regionssnps, upper_tri), aes(fill = Fst), colour = "white") +
+  geom_text(data = filter(FST.vgsw.regionssnps, upper_tri), aes(label = round(Fst, digits = 3)), 
+            color = "white", size = 9) +
+  # Lower triangle: Sign values (*, **, ***, ns) without color
+  geom_tile(data = filter(FST.vgsw.regionssnps, !upper_tri), fill = NA, colour = "white") +
+  geom_text(data = filter(FST.vgsw.regionssnps, !upper_tri), aes(label = Sign), size = 9) +
+  # Reverse Y axis to maintain diagonal alignment and correct positioning
+  scale_y_reverse(breaks = 1:5, labels = c("PI","SBC","WA","NV","CO")) +
+  scale_x_continuous(breaks = 1:5, labels = c("PI","SBC","WA","NV","CO")) +
+  # Color scale for upper half
+  scale_fill_viridis_c(name = "Fst", na.value = "white") +
+  # Add title
+  ggtitle("VGSW") + 
+  # Theme and formatting
+  labs(x = NULL, y = NULL) +
+  theme_minimal() +
+  theme(legend.key.size = unit(1.25, "cm"),
+        legend.title = element_text(size = 30),
+        legend.text = element_text(size = 22),
+        strip.text = element_text(angle = 0),
+        panel.grid = element_blank(),
+        panel.spacing = unit(0, "cm"),
+        panel.border = element_rect(fill = NA, colour = "black"),
+        panel.background = element_rect(fill = "white"),
+        plot.background = element_rect(fill = "white", colour = "white"),
+        axis.title.x = element_blank(),
+        axis.text.x = element_text(angle = 0, vjust = 0.5, hjust = 0.5),
+        axis.text = element_text(size = 27.5, color = "black"),
+        plot.title = element_text(size = 30, face = "bold"))
+gFST.vgsw.regions
+
+
+## Merge Fst results ------------------------------------------------------
+
+pop.size.alfl <- as.data.frame(table(pop(gl.alfl.reg), useNA = "ifany")) %>% 
+  mutate(Species = "ALFL")
+pop.size.clsw <- as.data.frame(table(pop(gl.clsw.reg), useNA = "ifany")) %>% 
+  mutate(Species = "CLSW")
+pop.size.puma <- as.data.frame(table(pop(gl.puma.reg), useNA = "ifany")) %>% 
+  mutate(Species = "PUMA")
+pop.size.vgsw <- as.data.frame(table(pop(gl.vgsw.reg), useNA = "ifany")) %>% 
+  mutate(Species = "VGSW")
+pop.size <- bind_rows(pop.size.alfl,
+                      pop.size.clsw,
+                      pop.size.puma,
+                      pop.size.vgsw)
+colnames(pop.size) <- c("Pop","Nind","Species")
+
+FST.regions <- bind_rows(FST.alfl.regionssnps,
+                         FST.clsw.regionssnps,
+                         FST.puma.regionssnps,
+                         FST.vgsw.regionssnps) %>% 
+  left_join(pop.size, by = c("Species", "Population1" = "Pop")) %>% 
+  left_join(pop.size, by = c("Species", "Population2" = "Pop")) %>% 
+  filter(upper_tri %in% T) %>% 
+  select("Species","SNPs","Population1","Nind.x","Population2","Nind.y","Fst","Lower.bound.CI.limit","Upper.bound.CI.limit","p.value","Sign") %>% 
+  arrange(Species, SNPs, Population1, Population2)
+colnames(FST.regions)[c(4,6)] <- c("Nind1","Nind2")
+str(FST.regions)
+# write.csv(FST.regions, file = "./02_Results/08_Fst/FST.table.csv", row.names = F)
+
+# Check out correlation between sample sizes of pop1 and 2, and pairwise Fst
+# An additional way would be to simulate Fst from the same pops with lots of IDs and reduce the individual sample size for each of those
+
+# Heatmap: Sample Sizes vs. Fst
+ggplot(FST.regions, aes(x = Nind1, y = Nind2, fill = Fst)) +
+  geom_tile() +
+  scale_fill_viridis_c() +
+  labs(x = "Sample Size Population 1", y = "Sample Size Population 2", 
+       fill = "Fst", title = "Heatmap of Fst by Population Sample Sizes") +
+  theme_minimal()
+
+# Scatter Plot: Fst vs. Minimum Sample Size (Pop1 vs. Pop2)
+FST.regions$min_sample_size <- pmin(FST.regions$Nind1, FST.regions$Nind2)
+ggplot(FST.regions, aes(x = min_sample_size, y = Fst)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "loess", color = "red") +
+  labs(x = "Minimum Sample Size in Comparison", y = "Pairwise Fst",
+       title = "Fst vs. Minimum Sample Size") +
+  theme_minimal()
+
+# Scatter Plot: Fst vs. Sample Size Ratio (Asymmetry)
+FST.regions$size_ratio <- pmax(FST.regions$Nind1, FST.regions$Nind2) / pmin(FST.regions$Nind1, FST.regions$Nind2)
+ggplot(FST.regions, aes(x = size_ratio, y = Fst)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "loess", color = "blue") +
+  labs(x = "Sample Size Ratio (Larger / Smaller)", y = "Pairwise Fst",
+       title = "Fst vs. Sample Size Asymmetry") +
+  theme_minimal()
+
+# Faceting Fst Distributions by Minimum Sample Size Groups
+FST.regions$min_size_category <- cut(FST.regions$min_sample_size, 
+                                     breaks = c(3, 6, 8, 10), 
+                                     labels = c("4-6", "7-8", "9-10"))
+ggplot(FST.regions, aes(x = min_size_category, y = Fst)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.2, alpha = 0.5) +
+  labs(x = "Minimum Sample Size Category", y = "Fst",
+       title = "Fst by Minimum Sample Size Category") +
+  theme_minimal()
+
+
+# Use hierfstat to estimate fst and fst' to check differences in results
+# Check this out as well: https://grunwaldlab.github.io/Population_Genetics_in_R/Pop_Structure.html
+
+# Figure
+
+gFSTsnps.regions <- (gFST.alfl.regions + gFST.clsw.regions) / (gFST.puma.regions + gFST.vgsw.regions)
+gFSTsnps.regions
+# ggsave(filename = "./02_Results/08_Fst/FST.by.regionsnps.species.png",
+#        plot = gFSTsnps.regions,
+#        width = 28, height = 25, units = "in")
