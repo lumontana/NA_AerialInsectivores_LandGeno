@@ -805,7 +805,7 @@ d.pca <- d.pca %>%
                                             "AB","MB","SK","CO","NM","MX","GU","HO",  
                                             "ON","SWON","NL","NC","MS","LA")),
          Season = factor(Season, levels = c("Breeding","Migrating")))
-write.csv(d.pca, file = "./02_Results/06_PCA/PCA.data.csv", row.names = F)
+# write.csv(d.pca, file = "./02_Results/06_PCA/PCA.data.csv", row.names = F)
 
 
 ## Figures ---------------------------------------------------------------
@@ -930,42 +930,96 @@ gPCA.5v6
 
 
 # Fst ---------------------------------------------------------------------
+# Putative neutral SNPs
 
 parallel::detectCores()
 head(gt.meta.tidy)
 
-# Regions with < 5 samples should be excluded, unless they can be merged to other very close areas (e.g., VI, PI_BC, SBC)
-# 4 could already be acceptable but check results out
+# Keeping region with at least 3 SUMMER samples - some regions can be merged when N is low and other sample areas are close by
+# and don't show any genetic difference (e.g. VI, PI and SBC but not for VGSW)
+# I made exceptions if the migrating samples were the same as those samples during the breeding season
 
-gt.meta.tidy %>% left_join(d.pca %>% select(ID, Season))
-  group_by(Species, Region, ) %>% summarise(N = n()) %>% print(n = 50)
-# ALFL: keep AB, NBC, SK; remove GU, HO, LA, MT, NL, YT; merge nothing
-# CLSW: keep all regions (MS 4 specimens, trying it as it is for now)
-# PUMA: keep NC, SK, SWON, WA; remove NV; merge PI_BC-SBC-VI
-# VGSW: keep CO, NV, PI_BC, SBC, WA; remove NM; merge nothing
-gt.meta.tidy <- gt.meta.tidy %>% 
+gt.meta.tidy %>% left_join(d.pca %>% select(ID, Season), by = c("Indiv"="ID")) %>% 
+  group_by(Species, Region, Season) %>% summarise(N = n()) %>% print(n = 50)
+# Species Region Season        N
+# ALFL    AB     Breeding      8
+# ALFL    GU     Migrating     2
+# ALFL    HO     Migrating     1
+# ALFL    LA     Migrating     3
+# ALFL    MT     Migrating     1
+# ALFL    NBC    Migrating    11
+# ALFL    NL     Breeding      1
+# ALFL    SK     Breeding      7
+# ALFL    YT     Migrating     2
+# Keeping only AB, SK. 
+# NBC is a though one. All migrating samples, of which are not in the same cluster as the other 8 (PC1, 2, 3, 4).
+# Excluding it for now but seek additional wisdom from group
+
+# Species Region Season        N
+# CLSW    AZ     Migrating     5
+# CLSW    CO     Breeding      8
+# CLSW    MB     Breeding      6
+# CLSW    MS     Breeding      4
+# CLSW    MX     Breeding      3
+# CLSW    MX     Migrating     2
+# CLSW    NBC    Breeding      5
+# CLSW    ON     Breeding      7
+# CLSW    SK     Breeding     12
+# CLSW    WA     Breeding      6
+# CLSW    WA     Migrating     2
+# Keeping CO, MV, MS, MX (only breeding ones), NBC, ON, SK, WA (only breeding ones)
+# Excluding AZ (all migrating samples), as well as 2 migrating samples from MX and WA
+
+# Species Region Season        N
+# PUMA    NC     Breeding      4
+# PUMA    NV     Breeding      2
+# PUMA    PI_BC  Breeding      8
+# PUMA    SBC    Breeding      1
+# PUMA    SK     Breeding     12
+# PUMA    SWON   Breeding     10
+# PUMA    VI     Breeding      1
+# PUMA    WA     Breeding      2
+# PUMA    WA     Migrating     3
+# Keeping NC, SK, SWON
+# Merge PI_BC, SBC, VI
+# Remove NV and WA
+
+# Species Region Season        N
+# VGSW    CO     Breeding      6
+# VGSW    CO     Migrating     2
+# VGSW    NM     Breeding      2
+# VGSW    NV     Breeding     10
+# VGSW    PI_BC  Breeding      7
+# VGSW    SBC    Breeding      5
+# VGSW    WA     Breeding      3
+# VGSW    WA     Migrating     6
+# Keeping CO (breeding only), NV, PI_BC, SBC, WA
+# Remove migrating samples from CO and WA, remove NM (not enough samples)
+
+gt.meta.tidy.fst <- gt.meta.tidy %>%
+  left_join(d.pca %>% select(ID, Season), by = c("Indiv"="ID")) %>% 
+  # filter(Season %in% "Breeding") %>% 
   mutate(Region_merge = ifelse(Species %in% "PUMA" & Region %in% c("PI_BC","SBC","VI"), "SBC and VI",
                                ifelse(Region %in% "PI_BC", "PI",
                                       Region)))
-gt.meta.tidy %>% group_by(Species, Region_merge) %>% summarise(N = n()) %>% print(n = 50)
+gt.meta.tidy.fst %>% group_by(Species, Region_merge, Season) %>% summarise(N = n()) %>% print(n = 50)
 
 
 ## ALFL -------------------------------------------------------------------
-# Putative neutral SNPs
 
 gl.alfl.reg <- gl.alfl
 pop(gl.alfl.reg) <- data.frame(Indiv = indNames(gl.alfl.reg)) %>% 
-  left_join(gt.meta.tidy, by = "Indiv") %>% pull(Region_merge)
+  left_join(gt.meta.tidy.fst, by = "Indiv") %>% pull(Region_merge)
 table(pop(gl.alfl.reg), useNA = "ifany")
 # AB GU HO LA MT NBC NL SK YT 
 #  8  2  1  3  1  11  1  7  2
 
-# Remove or merge regions with <5 samples
-id_alfl_fst <- gt.meta.tidy %>% filter(Species %in% "ALFL", Region %nin% c("AB","NBC","SK")) %>% pull(Indiv)
+# Remove or merge regions with <3 samples
+id_alfl_fst <- gt.meta.tidy %>% filter(Species %in% "ALFL", Region %nin% c("AB","SK")) %>% pull(Indiv)
 gl.alfl.reg <- gl.drop.ind(gl.alfl.reg, id_alfl_fst, recalc = T, verbose = 5)
 table(pop(gl.alfl.reg), useNA = "ifany")
-# AB NBC SK 
-#  8  11  7
+# AB SK 
+#  8  7
 
 # Fst
 # FST.alfl.regionssnps.matrix <- gl.fst.pop(gl.alfl.reg, nboots = 999, percent = 95, nclusters = 15)  # using 9999 results are pretty much the same
@@ -990,8 +1044,8 @@ FST.alfl.regionssnps <- read.csv("./02_Results/08_Fst/FST_alfl_neutral_regions.c
 
 # Map population factors to numeric values while keeping original labels for plotting
 FST.alfl.regionssnps <- FST.alfl.regionssnps %>%
-  mutate(Population1 = factor(Population1, levels = c("NBC","AB","SK")),
-         Population2 = factor(Population2, levels = c("NBC","AB","SK")),
+  mutate(Population1 = factor(Population1, levels = c("AB","SK")),  # "NBC","AB","SK"
+         Population2 = factor(Population2, levels = c("AB","SK")),
          Population1_num = as.numeric(Population1),  # Convert to numeric for plotting
          Population2_num = as.numeric(Population2),
          upper_tri = Population1_num < Population2_num,
@@ -1008,8 +1062,8 @@ gFST.alfl.regions <- FST.alfl.regionssnps %>%
   geom_tile(data = filter(FST.alfl.regionssnps, !upper_tri), fill = NA, colour = "white") +
   geom_text(data = filter(FST.alfl.regionssnps, !upper_tri), aes(label = Sign), size = 9) +
   # Reverse Y axis to maintain diagonal alignment and correct positioning
-  scale_y_reverse(breaks = 1:3, labels = c("NBC","AB","SK")) +
-  scale_x_continuous(breaks = 1:3, labels = c("NBC","AB","SK")) +
+  scale_y_reverse(breaks = 1:2, labels = c("AB","SK")) +
+  scale_x_continuous(breaks = 1:2, labels = c("AB","SK")) +
   # Color scale for upper half
   scale_fill_viridis_c(name = "Fst", na.value = "white") +
   # Add title
@@ -1034,17 +1088,20 @@ gFST.alfl.regions
 
 
 ## CLSW -------------------------------------------------------------------
-# Putative neutral SNPs
 
 gl.clsw.reg <- gl.clsw
 pop(gl.clsw.reg) <- data.frame(Indiv = indNames(gl.clsw.reg)) %>% 
-  left_join(gt.meta.tidy, by = "Indiv") %>% pull(Region_merge)
+  left_join(gt.meta.tidy.fst, by = "Indiv") %>% pull(Region_merge)
 table(pop(gl.clsw.reg), useNA = "ifany")
 # AZ  CO  MB  MS  MX NBC  ON  SK  WA 
 #  5   8   6   4   5   5   7  12   8
 
-# Remove or merge regions with <5 samples
-# Keeping all regions for now, since all but MS, which has N = 4, have N ≥ 5
+# Remove or merge regions with <3 samples
+# Keeping CO, MV, MS, MX (only breeding ones), NBC, ON, SK, WA (only breeding ones)
+# Excluding AZ (all migrating samples), as well as 2 migrating samples from MX and WA
+id_clsw_fst <- gt.meta.tidy.fst %>% filter(Species %in% "CLSW", Season %in% "Migrating") %>% pull(Indiv)
+gl.clsw.reg <- gl.drop.ind(gl.clsw.reg, id_clsw_fst, recalc = T, verbose = 5)
+table(pop(gl.clsw.reg), useNA = "ifany")
 
 # Fst
 # FST.clsw.regionssnps.matrix <- gl.fst.pop(gl.clsw.reg, nboots = 999, percent = 95, nclusters = 15)  # using 9999 results are pretty much the same
@@ -1069,8 +1126,8 @@ FST.clsw.regionssnps <- read.csv("./02_Results/08_Fst/FST_clsw_neutral_regions.c
 
 # Map population factors to numeric values while keeping original labels for plotting
 FST.clsw.regionssnps <- FST.clsw.regionssnps %>%
-  mutate(Population1 = factor(Population1, levels = c("NBC","WA","AZ","SK","MB","CO","MX","MS","ON")),
-         Population2 = factor(Population2, levels = c("NBC","WA","AZ","SK","MB","CO","MX","MS","ON")),
+  mutate(Population1 = factor(Population1, levels = c("NBC","WA","SK","MB","CO","MX","MS","ON")),
+         Population2 = factor(Population2, levels = c("NBC","WA","SK","MB","CO","MX","MS","ON")),
          Population1_num = as.numeric(Population1),  # Convert to numeric for plotting
          Population2_num = as.numeric(Population2),
          upper_tri = Population1_num < Population2_num,  # Upper triangle distinction
@@ -1087,8 +1144,8 @@ gFST.clsw.regions <- FST.clsw.regionssnps %>%
   geom_tile(data = filter(FST.clsw.regionssnps, !upper_tri), fill = NA, colour = "white") +
   geom_text(data = filter(FST.clsw.regionssnps, !upper_tri), aes(label = Sign), size = 9) +
   # Reverse Y axis to maintain diagonal alignment and correct positioning
-  scale_y_reverse(breaks = 1:9, labels = c("NBC","WA","AZ","SK","MB","CO","MX","MS","ON")) +
-  scale_x_continuous(breaks = 1:9, labels = c("NBC","WA","AZ","SK","MB","CO","MX","MS","ON")) +
+  scale_y_reverse(breaks = 1:8, labels = c("NBC","WA","SK","MB","CO","MX","MS","ON")) +
+  scale_x_continuous(breaks = 1:8, labels = c("NBC","WA","SK","MB","CO","MX","MS","ON")) +
   # Color scale for upper half
   scale_fill_viridis_c(name = "Fst", na.value = "white") +
   # Add title
@@ -1113,21 +1170,23 @@ gFST.clsw.regions
 
 
 ## PUMA -------------------------------------------------------------------
-# Putative neutral SNPs
 
 gl.puma.reg <- gl.puma
 pop(gl.puma.reg) <- data.frame(Indiv = indNames(gl.puma.reg)) %>% 
-  left_join(gt.meta.tidy, by = "Indiv") %>% pull(Region_merge)
+  left_join(gt.meta.tidy.fst, by = "Indiv") %>% pull(Region_merge)
 table(pop(gl.puma.reg), useNA = "ifany")
 # NC NV SBC and VI SK SWON WA 
 #  4  2         10 12   10  5
 
-# Remove regions with <5 samples
-id_puma_fst <- gt.meta.tidy %>% filter(Species %in% "PUMA", Region_merge %nin% c("NC","SBC and VI","SK","SWON","WA")) %>% pull(Indiv)
+# Remove regions with <3 samples
+# Keeping NC, SK, SWON
+# Merge PI_BC, SBC, VI
+# Remove NV and WA
+id_puma_fst <- gt.meta.tidy.fst %>% filter(Species %in% "PUMA", Region_merge %nin% c("NC","SBC and VI","SK","SWON")) %>% pull(Indiv)
 gl.puma.reg <- gl.drop.ind(gl.puma.reg, id_puma_fst, recalc = T, verbose = 5)
 table(pop(gl.puma.reg), useNA = "ifany")
-# NC SBC and VI SK SWON WA 
-#  4         10 12   10  5
+# NC SBC and VI SK SWON
+#  4         10 12   10
 
 # Fst
 # FST.puma.regionssnps.matrix <- gl.fst.pop(gl.puma.reg, nboots = 999, percent = 95, nclusters = 15)  # using 9999 results are pretty much the same
@@ -1152,8 +1211,8 @@ FST.puma.regionssnps <- read.csv("./02_Results/08_Fst/FST_puma_neutral_regions.c
 
 # Map population factors to numeric values while keeping original labels for plotting
 FST.puma.regionssnps <- FST.puma.regionssnps %>%
-  mutate(Population1 = factor(Population1, levels = c("SBC and VI","WA","SK","NC","SWON")),
-         Population2 = factor(Population2, levels = c("SBC and VI","WA","SK","NC","SWON")),
+  mutate(Population1 = factor(Population1, levels = c("SBC and VI","SK","NC","SWON")),
+         Population2 = factor(Population2, levels = c("SBC and VI","SK","NC","SWON")),
          Population1_num = as.numeric(Population1),  # Convert to numeric for plotting
          Population2_num = as.numeric(Population2),
          upper_tri = Population1_num < Population2_num,  # Upper triangle distinction
@@ -1170,8 +1229,8 @@ gFST.puma.regions <- FST.puma.regionssnps %>%
   geom_tile(data = filter(FST.puma.regionssnps, !upper_tri), fill = NA, colour = "white") +
   geom_text(data = filter(FST.puma.regionssnps, !upper_tri), aes(label = Sign), size = 9) +
   # Reverse Y axis to maintain diagonal alignment and correct positioning
-  scale_y_reverse(breaks = 1:5, labels = c("SBC and VI","WA","SK","NC","SWON")) +
-  scale_x_continuous(breaks = 1:5, labels = c("SBC and VI","WA","SK","NC","SWON")) +
+  scale_y_reverse(breaks = 1:4, labels = c("SBC and VI","SK","NC","SWON")) +
+  scale_x_continuous(breaks = 1:4, labels = c("SBC and VI","SK","NC","SWON")) +
   # Color scale for upper half
   scale_fill_viridis_c(name = "Fst", na.value = "white") +
   # Add title
@@ -1196,21 +1255,23 @@ gFST.puma.regions
 
 
 ## VGSW -------------------------------------------------------------------
-# Putative neutral SNPs
 
 gl.vgsw.reg <- gl.vgsw
 pop(gl.vgsw.reg) <- data.frame(Indiv = indNames(gl.vgsw.reg)) %>% 
-  left_join(gt.meta.tidy, by = "Indiv") %>% pull(Region_merge)
+  left_join(gt.meta.tidy.fst, by = "Indiv") %>% pull(Region_merge)
 table(pop(gl.vgsw.reg), useNA = "ifany")
 # CO NM NV PI SBC WA 
 #  8  2 10  7   5  9
 
-# Remove regions with <5 samples
-id_vgsw_fst <- gt.meta.tidy %>% filter(Species %in% "VGSW", Region_merge %nin% c("CO","NV","PI","SBC","WA")) %>% pull(Indiv)
+# Remove regions with <3 samples
+# Keeping CO (breeding only), NV, PI_BC, SBC, WA
+# Remove migrating samples from CO and WA, remove NM (not enough samples)
+id_vgsw_fst <- gt.meta.tidy.fst %>% filter(Species %in% "VGSW", Season %in% "Migrating") %>% pull(Indiv)
+id_vgsw_fst <- c(id_vgsw_fst, gt.meta.tidy.fst %>% filter(Species %in% "VGSW", Region %in% "NM") %>% pull(Indiv))
 gl.vgsw.reg <- gl.drop.ind(gl.vgsw.reg, id_vgsw_fst, recalc = T, verbose = 5)
 table(pop(gl.vgsw.reg), useNA = "ifany")
-# CO NV PI SBC WA 
-#  8 10  7   5  9
+# CO  NV  PI SBC  WA 
+#  6  10   7   5   3
 
 # Fst
 # FST.vgsw.regionssnps.matrix <- gl.fst.pop(gl.vgsw.reg, nboots = 999, percent = 95, nclusters = 15)  # using 9999 results are pretty much the same
@@ -1301,9 +1362,9 @@ FST.regions <- bind_rows(FST.alfl.regionssnps,
   left_join(pop.size, by = c("Species", "Population1" = "Pop")) %>% 
   left_join(pop.size, by = c("Species", "Population2" = "Pop")) %>% 
   filter(upper_tri %in% T) %>% 
-  select("Species","SNPs","Population1","Nind.x","Population2","Nind.y","Fst","Lower.bound.CI.limit","Upper.bound.CI.limit","p.value","Sign") %>% 
-  arrange(Species, SNPs, Population1, Population2)
-colnames(FST.regions)[c(4,6)] <- c("Nind1","Nind2")
+  select("Species","Population1","Nind.x","Population2","Nind.y","Fst","Lower.bound.CI.limit","Upper.bound.CI.limit","p.value","Sign") %>% 
+  arrange(Species, Population1, Population2)
+colnames(FST.regions)[c(3,5)] <- c("Nind1","Nind2")
 str(FST.regions)
 # write.csv(FST.regions, file = "./02_Results/08_Fst/FST.table.csv", row.names = F)
 
@@ -1340,8 +1401,8 @@ ggplot(FST.regions, aes(x = size_ratio, y = Fst)) +
 
 # Faceting Fst Distributions by Minimum Sample Size Groups
 FST.regions$min_size_category <- cut(FST.regions$min_sample_size, 
-                                     breaks = c(3, 6, 8, 10), 
-                                     labels = c("4-6", "7-8", "9-10"))
+                                     breaks = c(2, 5, 8, 10), 
+                                     labels = c("3-5", "6-8", "9-10"))
 ggplot(FST.regions, aes(x = min_size_category, y = Fst)) +
   geom_boxplot() +
   geom_jitter(width = 0.2, alpha = 0.5) +
@@ -1356,6 +1417,6 @@ ggplot(FST.regions, aes(x = min_size_category, y = Fst)) +
 
 gFSTsnps.regions <- (gFST.alfl.regions + gFST.clsw.regions) / (gFST.puma.regions + gFST.vgsw.regions)
 gFSTsnps.regions
-# ggsave(filename = "./02_Results/08_Fst/FST.by.regionsnps.species.png",
-#        plot = gFSTsnps.regions,
-#        width = 28, height = 25, units = "in")
+ggsave(filename = "./02_Results/08_Fst/FST.by.regionsnps.species.png",
+       plot = gFSTsnps.regions,
+       width = 28, height = 25, units = "in")
