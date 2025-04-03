@@ -756,9 +756,9 @@ d.pca.tt <- d.pca.tt %>%
 
 d.pca <- d.pca %>% 
   left_join(d.pca.tt[, c("ID","Season..TT.")])
-colnames(d.pca)[32] <- "Season.TT"
-d.pca %>% group_by(Season.TT) %>% summarise(N = n())
-# Season.TT     N
+colnames(d.pca)[32] <- "Season"
+d.pca %>% group_by(Season) %>% summarise(N = n())
+# Season        N
 # Breeding    140
 # Migrating    40
 
@@ -804,8 +804,8 @@ d.pca <- d.pca %>%
   mutate(Region = factor(Region, levels = c("YT","NBC","BC","SBC","VI","PI","PI and VI","WA","MT","NV","AZ",  
                                             "AB","MB","SK","CO","NM","MX","GU","HO",  
                                             "ON","SWON","NL","NC","MS","LA")),
-         Season = factor(Season.TT, levels = c("Breeding","Migrating")))
-# write.csv(d.pca, file = "./02_Results/06_PCA/PCA.data.csv", row.names = F)
+         Season = factor(Season, levels = c("Breeding","Migrating")))
+write.csv(d.pca, file = "./02_Results/06_PCA/PCA.data.csv", row.names = F)
 
 
 ## Figures ---------------------------------------------------------------
@@ -830,7 +830,7 @@ for(sp in l_species){
   # Subset colors for only the regions present in this species
   species_colors <- region_colors[names(region_colors) %in% unique(species_data$Region)]
 
-  l_gPCA.1v2[[sp]] <- ggplot(species_data, aes(x = score.PC1, y = score.PC2, col = Region, shape = Season.TT)) +
+  l_gPCA.1v2[[sp]] <- ggplot(species_data, aes(x = score.PC1, y = score.PC2, col = Region, shape = Season)) +
     geom_hline(yintercept = 0) +
     geom_vline(xintercept = 0) +
     geom_point(stroke = 1, size = 6, alpha = 0.5) +
@@ -865,7 +865,7 @@ for(sp in l_species){
   # Subset colors for only the regions present in this species
   species_colors <- region_colors[names(region_colors) %in% unique(species_data$Region)]
   
-  l_gPCA.3v4[[sp]] <- ggplot(species_data, aes(x = score.PC3, y = score.PC4, col = Region, shape = Season.TT)) +
+  l_gPCA.3v4[[sp]] <- ggplot(species_data, aes(x = score.PC3, y = score.PC4, col = Region, shape = Season)) +
     geom_hline(yintercept = 0) +
     geom_vline(xintercept = 0) +
     geom_point(stroke = 1, size = 6, alpha = 0.5) +
@@ -900,7 +900,7 @@ for(sp in l_species){
   # Subset colors for only the regions present in this species
   species_colors <- region_colors[names(region_colors) %in% unique(species_data$Region)]
   
-  l_gPCA.5v6[[sp]] <- ggplot(species_data, aes(x = score.PC5, y = score.PC6, col = Region, shape = Season.TT)) +
+  l_gPCA.5v6[[sp]] <- ggplot(species_data, aes(x = score.PC5, y = score.PC6, col = Region, shape = Season)) +
     geom_hline(yintercept = 0) +
     geom_vline(xintercept = 0) +
     geom_point(stroke = 1, size = 6, alpha = 0.5) +
@@ -937,7 +937,8 @@ head(gt.meta.tidy)
 # Regions with < 5 samples should be excluded, unless they can be merged to other very close areas (e.g., VI, PI_BC, SBC)
 # 4 could already be acceptable but check results out
 
-gt.meta.tidy %>% group_by(Species, Region) %>% summarise(N = n()) %>% print(n = 50)
+gt.meta.tidy %>% left_join(d.pca %>% select(ID, Season))
+  group_by(Species, Region, ) %>% summarise(N = n()) %>% print(n = 50)
 # ALFL: keep AB, NBC, SK; remove GU, HO, LA, MT, NL, YT; merge nothing
 # CLSW: keep all regions (MS 4 specimens, trying it as it is for now)
 # PUMA: keep NC, SK, SWON, WA; remove NV; merge PI_BC-SBC-VI
