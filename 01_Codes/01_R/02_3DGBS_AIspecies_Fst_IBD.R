@@ -177,7 +177,7 @@ gt.meta.tidy.alfl <- gt.tidy.alfl %>%
                              DP = mean(gt_DP, na.rm=T),
                              Batch = max(Batch),  #  this is ok since we don't have duplicates - see L148
                              Merged = max(Merged)) %>%  # since it's binary it doesn't really matter if I keep the max or the min
-  left_join(d_meta_alfl %>% select(3:18), by = c("Indiv"="ID_dra"))
+  left_join(d_meta_alfl %>% select(3:17), by = c("Indiv"="ID_dra"))
 head(gt.meta.tidy.alfl)
 gt.meta.tidy.alfl %>% group_by(Region) %>% summarise(N = n())
 # Region     N
@@ -205,7 +205,7 @@ colnames(ho.alfl)[2:4] <- c("Ho","f.hom.ref","f.hom.alt")
 gt.meta.tidy.alfl <- gt.meta.tidy.alfl %>% 
   left_join(na.info.alfl, by = c("Indiv" = "ID")) %>% 
   left_join(ho.alfl, by = c("Indiv" = "ind.name")) %>% 
-  select(1:4,22:25,5:21)
+  select(1:4,21:24,5:20)
 
 
 ### CLSW ------------------------------------------------------------------
@@ -293,7 +293,7 @@ gt.meta.tidy.clsw <- gt.tidy.clsw %>%
                              DP = mean(gt_DP, na.rm=T),
                              Batch = max(Batch),  #  this is ok since we don't have duplicates - see L148
                              Merged = max(Merged)) %>%  # since it's binary it doesn't really matter if I keep the max or the min
-  left_join(d_meta_clsw %>% select(3:18), by = c("Indiv"="ID_dra"))
+  left_join(d_meta_clsw %>% select(3:17), by = c("Indiv"="ID_dra"))
 head(gt.meta.tidy.clsw)
 gt.meta.tidy.clsw %>% group_by(Region) %>% summarise(N = n())
 # Region     N
@@ -319,7 +319,7 @@ colnames(ho.clsw)[2:4] <- c("Ho","f.hom.ref","f.hom.alt")
 gt.meta.tidy.clsw <- gt.meta.tidy.clsw %>% 
   left_join(na.info.clsw, by = c("Indiv" = "ID")) %>% 
   left_join(ho.clsw, by = c("Indiv" = "ind.name")) %>% 
-  select(1:4,22:25,5:21)
+  select(1:4,21:24,5:20)
 
 
 ### PUMA ------------------------------------------------------------------
@@ -411,7 +411,7 @@ gt.meta.tidy.puma <- gt.tidy.puma %>%
                              DP = mean(gt_DP, na.rm=T),
                              Batch = max(Batch),  #  this is ok since we don't have duplicates - see L148
                              Merged = max(Merged)) %>%  # since it's binary it doesn't really matter if I keep the max or the min
-  left_join(d_meta_puma %>% select(3:18), by = c("Indiv"="ID_dra"))
+  left_join(d_meta_puma %>% select(3:17), by = c("Indiv"="ID_dra"))
 head(gt.meta.tidy.puma)
 gt.meta.tidy.puma %>% group_by(Region) %>% summarise(N = n())
 # Region     N
@@ -438,7 +438,7 @@ colnames(ho.puma)[2:4] <- c("Ho","f.hom.ref","f.hom.alt")
 gt.meta.tidy.puma <- gt.meta.tidy.puma %>% 
   left_join(na.info.puma, by = c("Indiv" = "ID")) %>% 
   left_join(ho.puma, by = c("Indiv" = "ind.name")) %>% 
-  select(1:4,22:25,5:21)
+  select(1:4,21:24,5:20)
 
 
 ### VGSW ------------------------------------------------------------------
@@ -527,7 +527,7 @@ gt.meta.tidy.vgsw <- gt.tidy.vgsw %>%
                              DP = mean(gt_DP, na.rm=T),
                              Batch = max(Batch),  #  this is ok since we don't have duplicates - see L148
                              Merged = max(Merged)) %>%  # since it's binary it doesn't really matter if I keep the max or the min
-  left_join(d_meta_vgsw %>% select(3:18), by = c("Indiv"="ID_dra"))
+  left_join(d_meta_vgsw %>% select(3:17), by = c("Indiv"="ID_dra"))
 head(gt.meta.tidy.vgsw)
 gt.meta.tidy.vgsw %>% group_by(Region) %>% summarise(N = n())
 # Region     N
@@ -550,7 +550,7 @@ colnames(ho.vgsw)[2:4] <- c("Ho","f.hom.ref","f.hom.alt")
 gt.meta.tidy.vgsw <- gt.meta.tidy.vgsw %>% 
   left_join(na.info.vgsw, by = c("Indiv" = "ID")) %>% 
   left_join(ho.vgsw, by = c("Indiv" = "ind.name")) %>% 
-  select(1:4,22:25,5:21)
+  select(1:4,21:24,5:20)
 
 
 ### Merge species-specific gt.meta files together -------------------------
@@ -651,7 +651,7 @@ gHo.by.region
 
 # PCA ---------------------------------------------------------------------
 
-# Make a list with gl files to run PCA with lapply
+# # Make a list with gl files to run PCA with lapply
 # gl.list <- list(gl.alfl, gl.clsw, gl.puma, gl.vgsw)
 # names(gl.list) <- c("ALFL","CLSW","PUMA","VGSW")
 # 
@@ -689,10 +689,6 @@ pca.var.puma <- pca_var(pca.list[["PUMA"]], nInd(gl.puma)-1) %>%
   mutate(Species = "PUMA")
 pca.var.vgsw <- pca_var(pca.list[["VGSW"]], nInd(gl.vgsw)-1) %>%
   mutate(Species = "VGSW")
-# pca.var.puma <- pca_var(pca.list[["PUMA"]], length(pca.list[["PUMA"]]$eig)) %>%  # originally using nInd(gl.clsw)-1, issue here in the number of eig estimated...
-#   mutate(Species = "PUMA")
-# pca.var.vgsw <- pca_var(pca.list[["VGSW"]], length(pca.list[["VGSW"]]$eig)) %>%  # originally using nInd(gl.clsw)-1, issue here in the number of eig estimated...
-#   mutate(Species = "VGSW")
 pca.var <- bind_rows(pca.var.alfl,
                      pca.var.clsw,
                      pca.var.puma,
@@ -759,7 +755,7 @@ d.pca.tt <- d.pca.tt %>%
 
 d.pca <- d.pca %>% 
   left_join(d.pca.tt[, c("ID","Season..TT.")])
-colnames(d.pca)[33] <- "Season.TT"
+colnames(d.pca)[32] <- "Season.TT"
 d.pca %>% group_by(Season.TT) %>% summarise(N = n())
 # Season.TT     N
 # Breeding    140
