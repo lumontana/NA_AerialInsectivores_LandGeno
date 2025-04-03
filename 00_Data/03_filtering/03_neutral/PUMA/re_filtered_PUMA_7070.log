@@ -1,0 +1,16 @@
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf puma_7070_maxDP.recode.vcf
+	--keep inds_to_keep_7070.txt
+	--out re_filtered_PUMA_7070
+	--positions neutral.txt
+	--recode
+
+Keeping individuals in 'keep' list
+After filtering, kept 43 out of 43 Individuals
+Outputting VCF file...
+After filtering, kept 40927 out of a possible 108694 Sites
+Run Time = 3.00 seconds

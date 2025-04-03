@@ -1,0 +1,16 @@
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf clsw.s50_i70.21946snps.60ids.recode.vcf
+	--keep inds_to_keep_CLSW.txt
+	--out re_filtered_CLSW
+	--positions neutral.txt
+	--recode
+
+Keeping individuals in 'keep' list
+After filtering, kept 60 out of 60 Individuals
+Outputting VCF file...
+After filtering, kept 9507 out of a possible 21946 Sites
+Run Time = 5.00 seconds
