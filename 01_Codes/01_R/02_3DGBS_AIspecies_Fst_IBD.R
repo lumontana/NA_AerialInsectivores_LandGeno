@@ -1418,6 +1418,227 @@ ggplot(FST.regions, aes(x = min_size_category, y = Fst)) +
 
 gFSTsnps.regions <- (gFST.alfl.regions + gFST.clsw.regions) / (gFST.puma.regions + gFST.vgsw.regions)
 gFSTsnps.regions
-ggsave(filename = "./02_Results/08_Fst/FST.by.regionsnps.species.png",
-       plot = gFSTsnps.regions,
-       width = 28, height = 25, units = "in")
+# ggsave(filename = "./02_Results/08_Fst/FST.by.regionsnps.species.png",
+#        plot = gFSTsnps.regions,
+#        width = 28, height = 25, units = "in")
+
+
+
+# Isolation By Distance IBD -----------------------------------------------
+
+# IBD gl.ibd: https://groups.google.com/g/dartr/c/lULh7pMe3vM
+
+# IBD Mantel test: https://bookdown.org/hhwagner1/LandGenCourse_book/WE_5.html
+# https://green-striped-gecko.github.io/dartR/reference/gl.ibd.html?q=isolation%20#null
+
+# IBE: Read Maxwell et al. 2024 (ME), Mendez et al. 2010 (ME), Millet et al. 2024 (ME), Montalvo et al. 2024 (EE)
+
+## ALFL -------------------------------------------------------------------
+# Cannot do it since I only have Fsts between AB and SK
+# 
+# lcp.alfl <- read_excel("./00_Data/00_fileinfo/AI_LCP_Distance.xlsx", sheet = "ALFL_LCP_Distance_2")
+# lcp.alfl <- lcp.alfl %>% column_to_rownames(var = colnames(lcp.alfl[1]))  # set row names from first column
+# # Make distance matrix
+# dist.lcp.alfl <- as.dist(lcp.alfl)  # convert to distance matrix
+# dist.lcp.alfl.km <- round(dist.lcp.alfl/1000, 2)  # covert distances to km
+# 
+# # Convert Fst matrix into a dist matrix
+# dist.Fst.alflsnps <- as.dist(FST.alfl.regionssnps.matrix$Fsts)
+# 
+# # Visually check linearity
+# dens <- MASS::kde2d(dist.lcp.alfl.km, dist.Fst.alflsnps, n=300)  # compute 2D density estimates
+# myPal <- colorRampPalette(c("white","blue","gold","orange","red"))  # define color palette
+# # png(filename = "./02_Results/09_IBD/IBD_alfl_neutral.png", res = 300, width = 7, height = 6, units = "in", pointsize = 12)
+# plot(dist.Fst.alflsnps ~ dist.lcp.alfl.km, main = "ALFL all SNPs",
+#      xlab="Geographic Distance (km)", ylab=expression("F"["ST"]),
+#      type = "n")
+# image(dens, col=transp(myPal(300), 0.7), add=TRUE)
+# points(dist.Fst.alflsnps ~ dist.lcp.alfl.km, type = "p", pch = 19, cex = 1.5)
+# abline(lm(dist.Fst.alflsnps ~ dist.lcp.alfl.km))
+# # lines(loess.smooth(dist.lcp.alfl.km, dist.Fst.alflsnps), col="red")
+# # dev.off()
+# 
+# # Perform IBD Mantel test
+# ibd.alflsnps <- mantel.randtest(dist.Fst.alflsnps, dist.lcp.alfl.km)
+# # vegan::mantel(dist.Fst.alflsnps,dist.lcp.alfl.km, method="spearman")
+# ibd.alflsnps
+# plot(ibd.alflsnps)
+
+
+## CLSW -------------------------------------------------------------------
+# Cannot do it right now - LCP distances not ready
+# 
+# lcp.clsw <- read_excel("./00_Data/00_fileinfo/AI_LCP_Distance.xlsx", sheet = "CLSW_LCP_Distance")
+# lcp.clsw <- lcp.clsw %>% column_to_rownames(var = colnames(lcp.clsw[1]))  # set row names from first column
+# # Make distance matrix
+# dist.lcp.clsw <- as.dist(lcp.clsw)  # convert to distance matrix
+# dist.lcp.clsw.km <- round(dist.lcp.clsw/1000, 2)  # convert distances to km
+# 
+# # Convert Fst matrix into a dist matrix
+# dist.Fst.clswsnps <- as.dist(FST.clsw.regionssnps.matrix$Fsts)
+# 
+# # Visually check linearity
+# dens <- MASS::kde2d(dist.lcp.clsw.km, dist.Fst.clswsnps, n=300)
+# # png(filename = "./02_Results/09_IBD/IBD_clsw_neutral.png", res = 300, width = 7, height = 6, units = "in", pointsize = 12)
+# plot(dist.Fst.clswsnps ~ dist.lcp.clsw.km, main = "CLSW all SNPs",
+#      xlab="Geographic Distance (km)", ylab=expression("F"["ST"]),
+#      type = "n")
+# image(dens, col=transp(myPal(300), 0.7), add=TRUE)
+# points(dist.Fst.clswsnps ~ dist.lcp.clsw.km, type = "p", pch = 19, cex = 1.5)
+# abline(lm(dist.Fst.clswsnps ~ dist.lcp.clsw.km))
+# # dev.off()
+# 
+# # Perform IBD Mantel test
+# ibd.clswsnps <- mantel.randtest(dist.Fst.clswsnps, dist.lcp.clsw.km)
+# # vegan::mantel(dist.Fst.clswsnps,dist.lcp.clsw.km, method="spearman")
+# ibd.clswsnps
+# plot(ibd.clswsnps)
+
+
+## PUMA -------------------------------------------------------------------
+
+lcp.puma <- read_excel("./00_Data/00_fileinfo/AI_LCP_Distance.xlsx", sheet = "PUMA_LCP_Distance_2")
+lcp.puma <- lcp.puma %>% column_to_rownames(var = colnames(lcp.puma[1]))  # set row names from first column
+# Make distance matrix
+dist.lcp.puma <- as.dist(lcp.puma)  # convert to distance matrix
+dist.lcp.puma.km <- round(dist.lcp.puma/1000, 2)  # convert distances to km
+
+# Convert Fst matrix into a dist matrix
+dist.Fst.pumasnps <- as.dist(FST.puma.regionssnps.matrix$Fsts)
+
+# Visually check linearity
+dens <- MASS::kde2d(dist.lcp.puma.km, dist.Fst.pumasnps, n=300)
+myPal <- colorRampPalette(c("white","blue","gold","orange","red"))  # define color palette
+# png(filename = "./02_Results/09_IBD/IBD_puma_neutral.png", res = 300, width = 7, height = 6, units = "in", pointsize = 12)
+plot(dist.Fst.pumasnps ~ dist.lcp.puma.km, main = "PUMA neutral SNPs",
+     xlab="Geographic Distance (km)", ylab=expression("F"["ST"]),
+     type = "n")
+image(dens, col=transp(myPal(300), 0.7), add=TRUE)
+points(dist.Fst.pumasnps ~ dist.lcp.puma.km, type = "p", pch = 19, cex = 1.5)
+abline(lm(dist.Fst.pumasnps ~ dist.lcp.puma.km))
+# lines(loess.smooth(dist.lcp.puma.km, dist.Fst.pumasnps), col="red")
+# dev.off()
+
+# Perform IBD Mantel test
+vegan::mantel(dist.Fst.pumasnps,dist.lcp.puma.km, method="spearman")
+# Mantel statistic based on Spearman's rank correlation rho 
+# Call:
+# vegan::mantel(xdis = dist.Fst.pumasnps, ydis = dist.lcp.puma.km,      method = "spearman") 
+# Mantel statistic r: 0.7143 
+#       Significance: 0.041667 
+# Upper quantiles of permutations (null model):
+#   90%   95% 97.5%   99% 
+# 0.371 0.474 0.511 0.530 
+# Permutation: free
+# Number of permutations: 23
+ibd.pumasnps <- mantel.randtest(dist.Fst.pumasnps, dist.lcp.puma.km)
+ibd.pumasnps
+# Monte-Carlo test
+# Call: mantel.randtest(m1 = dist.Fst.pumasnps, m2 = dist.lcp.puma.km)
+# Observation: 0.4126101 
+# Based on 999 replicates
+# Simulated p-value: 0.053 
+# Alternative hypothesis: greater 
+# Std.Obs Expectation    Variance 
+# 1.58680154  0.00585986  0.06570681
+plot(ibd.pumasnps)
+
+
+## VGSW -------------------------------------------------------------------
+
+lcp.vgsw <- read_excel("./00_Data/00_fileinfo/AI_LCP_Distance.xlsx", sheet = "VGSW_LCP_Distance_2")
+lcp.vgsw <- lcp.vgsw %>% column_to_rownames(var = colnames(lcp.vgsw[1]))  # set row names from first column
+# Make distance matrix
+dist.lcp.vgsw <- as.dist(lcp.vgsw)  # convert to distance matrix
+dist.lcp.vgsw.km <- round(dist.lcp.vgsw/1000, 2)  # convert distances to km
+
+# Convert Fst matrix into a dist matrix
+dist.Fst.vgswsnps <- as.dist(FST.vgsw.regionssnps.matrix$Fsts)
+
+# Visually check linearity
+dens <- MASS::kde2d(dist.lcp.vgsw.km, dist.Fst.vgswsnps, n=300)
+# png(filename = "./02_Results/09_IBD/IBD_vgsw_neutral.png", res = 300, width = 7, height = 6, units = "in", pointsize = 12)
+plot(dist.Fst.vgswsnps ~ dist.lcp.vgsw.km, main = "vgsw neutral SNPs",
+     xlab="Geographic Distance (km)", ylab=expression("F"["ST"]),
+     type = "n")
+image(dens, col=transp(myPal(300), 0.7), add=TRUE)
+points(dist.Fst.vgswsnps ~ dist.lcp.vgsw.km, type = "p", pch = 19, cex = 1.5)
+abline(lm(dist.Fst.vgswsnps ~ dist.lcp.vgsw.km))
+# lines(loess.smooth(dist.lcp.vgsw.km, dist.Fst.vgswsnps), col="red")
+# dev.off()
+
+# Perform IBD Mantel test
+vegan::mantel(dist.Fst.vgswsnps, dist.lcp.vgsw.km, method="spearman")
+# Mantel statistic based on Spearman's rank correlation rho 
+# Call:
+# vegan::mantel(xdis = dist.Fst.vgswsnps, ydis = dist.lcp.vgsw.km,      method = "spearman") 
+# Mantel statistic r: -0.2727 
+#       Significance: 0.79167 
+# Upper quantiles of permutations (null model):
+#   90%   95% 97.5%   99% 
+# 0.428 0.539 0.588 0.657 
+# Permutation: free
+# Number of permutations: 119
+ibd.vgswsnps <- mantel.randtest(dist.Fst.vgswsnps, dist.lcp.vgsw.km)
+ibd.vgswsnps
+# Monte-Carlo test
+# Call: mantel.randtest(m1 = dist.Fst.vgswsnps, m2 = dist.lcp.vgsw.km)
+# Observation: -0.4451402 
+# Based on 999 replicates
+# Simulated p-value: 0.929 
+# Alternative hypothesis: greater 
+# Std.Obs   Expectation      Variance 
+# -1.4342165042 -0.0005385813  0.0960976258
+plot(ibd.vgswsnps)
+
+### Estimation without PI -------------------------------------------------
+
+# Remove PI from lcp and Fst matrices
+lcp.vgsw2 <- lcp.vgsw[!(rownames(lcp.vgsw) %in% "PI"), !(colnames(lcp.vgsw) %in% "PI")]
+FST.vgsw.regionssnps.matrix2 <- FST.vgsw.regionssnps.matrix$Fsts
+FST.vgsw.regionssnps.matrix2 <- FST.vgsw.regionssnps.matrix2[!(rownames(FST.vgsw.regionssnps.matrix2) %in% "PI"), 
+                                                             !(colnames(FST.vgsw.regionssnps.matrix2) %in% "PI")]
+
+# Make distance matrix
+dist.lcp.vgsw2 <- as.dist(lcp.vgsw2)  # convert to distance matrix
+dist.lcp.vgsw.km2 <- round(dist.lcp.vgsw2/1000, 2)  # convert distances to km
+
+# Convert Fst matrix into a dist matrix
+dist.Fst.vgswsnps2 <- as.dist(FST.vgsw.regionssnps.matrix2)
+
+# Visually check linearity
+dens <- MASS::kde2d(dist.lcp.vgsw.km2, dist.Fst.vgswsnps2, n=300)
+# png(filename = "./02_Results/09_IBD/IBD_vgsw_neutral_noPI.png", res = 300, width = 7, height = 6, units = "in", pointsize = 12)
+plot(dist.Fst.vgswsnps2 ~ dist.lcp.vgsw.km2, main = "vgsw neutral SNPs - no PI",
+     xlab="Geographic Distance (km)", ylab=expression("F"["ST"]),
+     type = "n")
+image(dens, col=transp(myPal(300), 0.7), add=TRUE)
+points(dist.Fst.vgswsnps2 ~ dist.lcp.vgsw.km2, type = "p", pch = 19, cex = 1.5)
+abline(lm(dist.Fst.vgswsnps2 ~ dist.lcp.vgsw.km2))
+# lines(loess.smooth(dist.lcp.vgsw.km2, dist.Fst.vgswsnps2), col="red")
+# dev.off()
+
+# Perform IBD Mantel test
+vegan::mantel(dist.Fst.vgswsnps2, dist.lcp.vgsw.km2, method="spearman")
+# Mantel statistic based on Spearman's rank correlation rho 
+# Call:
+# vegan::mantel(xdis = dist.Fst.vgswsnps2, ydis = dist.lcp.vgsw.km2,      method = "spearman") 
+# Mantel statistic r: 0.08571 
+#       Significance: 0.5 
+# Upper quantiles of permutations (null model):
+#   90%   95% 97.5%   99% 
+# 0.394 0.583 0.600 0.600 
+# Permutation: free
+# Number of permutations: 23
+ibd.vgswsnps2 <- mantel.randtest(dist.Fst.vgswsnps2, dist.lcp.vgsw.km2)
+ibd.vgswsnps2
+# Call: mantel.randtest(m1 = dist.Fst.vgswsnps2, m2 = dist.lcp.vgsw.km2)
+# Observation: -0.2477119 
+# Based on 999 replicates
+# Simulated p-value: 0.851 
+# Alternative hypothesis: greater 
+# Std.Obs Expectation    Variance 
+# -1.19715670  0.01079315  0.04662684
+plot(ibd.vgswsnps2)
+
+
