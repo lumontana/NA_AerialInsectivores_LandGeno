@@ -928,6 +928,69 @@ gPCA.5v6
 #        width = 20, height = 15, units = "in")
 
 
+# Species-specific figures
+# Loop over species
+for (sp in l_species) {
+  species_data <- d.pca %>% filter(Species == sp)
+  pcavar <- pca.var %>% filter(Species == sp)
+  
+  # Subset colors only for the regions present in this species
+  species_colors <- region_colors[names(region_colors) %in% unique(species_data$Region)]
+  
+  # Panel 1: PC1 vs PC2
+  p1 <- ggplot(species_data, aes(x = score.PC1, y = score.PC2, col = Region, shape = Season)) +
+    geom_hline(yintercept = 0) + geom_vline(xintercept = 0) +
+    geom_point(stroke = 1, size = 6, alpha = 0.5) +
+    scale_color_manual(values = species_colors, guide = guide_legend(ncol = 1), name = "Region") +
+    scale_shape_manual(values = season_shapes, name = "Season") +
+    labs(x = paste0("PC1 (", round(pcavar$p.eig[pcavar$axis == 1], 4) * 100, "%)"), 
+         y = paste0("PC2 (", round(pcavar$p.eig[pcavar$axis == 2], 4) * 100, "%)")) +
+    theme_bw(base_size = 20) +
+    theme(axis.text = element_text(size = 18, colour = "black"),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          panel.border = element_rect(colour = "black", fill = NA, size = 1))
+  
+  # Panel 2: PC3 vs PC4
+  p2 <- ggplot(species_data, aes(x = score.PC3, y = score.PC4, col = Region, shape = Season)) +
+    geom_hline(yintercept = 0) + geom_vline(xintercept = 0) +
+    geom_point(stroke = 1, size = 6, alpha = 0.5) +
+    scale_color_manual(values = species_colors, guide = guide_legend(ncol = 1), name = "Region") +
+    scale_shape_manual(values = season_shapes, name = "Season") +
+    labs(x = paste0("PC3 (", round(pcavar$p.eig[pcavar$axis == 3], 4) * 100, "%)"), 
+         y = paste0("PC4 (", round(pcavar$p.eig[pcavar$axis == 4], 4) * 100, "%)")) +
+    theme_bw(base_size = 20) +
+    theme(axis.text = element_text(size = 18, colour = "black"),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          panel.border = element_rect(colour = "black", fill = NA, size = 1))
+  
+  # Panel 3: PC5 vs PC6
+  p3 <- ggplot(species_data, aes(x = score.PC5, y = score.PC6, col = Region, shape = Season)) +
+    geom_hline(yintercept = 0) + geom_vline(xintercept = 0) +
+    geom_point(stroke = 1, size = 6, alpha = 0.5) +
+    scale_color_manual(values = species_colors, guide = guide_legend(ncol = 1), name = "Region") +
+    scale_shape_manual(values = season_shapes, name = "Season") +
+    labs(x = paste0("PC5 (", round(pcavar$p.eig[pcavar$axis == 5], 4) * 100, "%)"), 
+         y = paste0("PC6 (", round(pcavar$p.eig[pcavar$axis == 6], 4) * 100, "%)")) +
+    theme_bw(base_size = 20) +
+    theme(axis.text = element_text(size = 18, colour = "black"),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          panel.border = element_rect(colour = "black", fill = NA, size = 1))
+  
+  # Combine three panels horizontally
+  combined_plot <- (p1 | p2 | p3)
+  
+  # Save the combined plot (optional)
+  ggsave(filename = paste0("./02_Results/06_PCA/PCA_", sp, ".png"),
+         plot = combined_plot,
+         width = 24, height = 6, units = "in")
+  
+  # Optionally, print the plot to screen
+  print(combined_plot)
+}
+
 
 
 # Fst ---------------------------------------------------------------------
@@ -1523,7 +1586,7 @@ abline(lm(dist.Fst.pumasnps ~ dist.lcp.puma.km))
 vegan::mantel(dist.Fst.pumasnps,dist.lcp.puma.km, method="spearman")
 # Mantel statistic based on Spearman's rank correlation rho 
 # Call:
-# vegan::mantel(xdis = dist.Fst.pumasnps, ydis = dist.lcp.puma.km,      method = "spearman") 
+# vegan::mantel(xdis = dist.Fst.pumasnps, ydis = dist.lcp.puma.km, method = "spearman") 
 # Mantel statistic r: 0.7143 
 #       Significance: 0.041667 
 # Upper quantiles of permutations (null model):
@@ -1571,7 +1634,7 @@ abline(lm(dist.Fst.vgswsnps ~ dist.lcp.vgsw.km))
 vegan::mantel(dist.Fst.vgswsnps, dist.lcp.vgsw.km, method="spearman")
 # Mantel statistic based on Spearman's rank correlation rho 
 # Call:
-# vegan::mantel(xdis = dist.Fst.vgswsnps, ydis = dist.lcp.vgsw.km,      method = "spearman") 
+# vegan::mantel(xdis = dist.Fst.vgswsnps, ydis = dist.lcp.vgsw.km, method = "spearman") 
 # Mantel statistic r: -0.2727 
 #       Significance: 0.79167 
 # Upper quantiles of permutations (null model):
@@ -1622,7 +1685,7 @@ abline(lm(dist.Fst.vgswsnps2 ~ dist.lcp.vgsw.km2))
 vegan::mantel(dist.Fst.vgswsnps2, dist.lcp.vgsw.km2, method="spearman")
 # Mantel statistic based on Spearman's rank correlation rho 
 # Call:
-# vegan::mantel(xdis = dist.Fst.vgswsnps2, ydis = dist.lcp.vgsw.km2,      method = "spearman") 
+# vegan::mantel(xdis = dist.Fst.vgswsnps2, ydis = dist.lcp.vgsw.km2, method = "spearman") 
 # Mantel statistic r: 0.08571 
 #       Significance: 0.5 
 # Upper quantiles of permutations (null model):
